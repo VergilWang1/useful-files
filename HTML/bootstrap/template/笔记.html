@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<!--确保IE浏览器始终以最新的引擎渲染页面-->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<!--确保页面在移动端下保持页面窗口大小设备视口大小，初始页面缩放比例1-->
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>bootstrap 页面基本模板</title>
+	<!--引入bootstrap css样式文件-->
+	<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.css">
+	<!--引入html5shiv.js 和 respond.js 是IE8支持HTML5新标签和媒体查询-->
+	 <!--[if lt IE 9]>
+		<script src="./js/html5shiv.js"></script>
+		<script src="./js/repond.js"></script>
+    <![endif]-->
+   
+</head>
+<body>
+
+	1.路径导航 .breadcrumb
+		<ul class="breadcrumb">
+			<li><a href="#">item-1</a></li>
+			<li><a href="#">item-2</a></li>
+			<li><a href="#">item-3</a></li>
+			<li><a href="#">item-4</a></li>
+		</ul>
+	2.分页 .pagination .pagination-sm .pagination-lg
+		<ul class="pagination pagination-lg">
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">6</a></li>
+			<li><a href="#">7</a></li>
+		</ul>
+	3.标签 .label .label-*(primary success info warning danger default)
+		<h4>Example heading <span class="label label-default">New</ssspan></h4>
+		<h4>Example heading <span class="label label-success">New</ssspan></h4>
+		<h4>Example heading <span class="label label-info">New</ssspan></h4>
+		<h4>Example heading <span class="label label-primary">New</ssspan></h4>
+		<h4>Example heading <span class="label label-danger">New</ssspan></h4>
+		<h4>Example heading <span class="label label-warning">New</ssspan></h4>
+	4.进度条
+		.progress .progress-bar
+		<div class="progress">
+			<div class="progress-bar" style="width:24%;"></div>
+		</div>
+		.progress-bar-*(primary success info warning danger) 进度条类型
+		<div class="progress">
+			<div class="progress-bar-success" style="width: 45%;"></div>
+		</div>
+		.progress-bar-striped 带斑马线进度条
+		<div class="progress">
+			<div class="progress-bar-info progress-bar-striped" style="width: 56%;"></div>
+		</div>
+	5.警告框
+		(1)简单警告框样式类
+			.alert 
+			.alert-*(success info warning danger)
+		(2)可关闭警告框
+			<div class="alert alert-dismissable">
+				<button class="close" data-dismiss="alert" type="button"></button>
+			</div>
+	6.列表组 .list-group .list-group-item
+		<div class="list-group">
+			<li class="list-group-item">1</li>
+			<li class="list-group-item">2</li>
+			<li class="list-group-item">3</li>
+			<li class="list-group-item">4</li>
+			<li class="list-group-item">5</li>
+		</div>
+	7.面板 .panel .panel-*(default success primary info danger warning) .panel-heading .panel-title .panel-body .panel-footer
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">panel title</h3>
+			</div>
+			<div class="panel-body">
+				<p>panel body content</p>
+			</div>
+			<div class="panel-footer">
+				<p>panel footer content</p>
+			</div>
+		</div>
+</body>
+
+</html>

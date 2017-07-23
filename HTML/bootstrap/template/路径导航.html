@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- 设置IE浏览器始终以最新引擎渲染页面 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- 移动端浏览该页面时页面的大小为视口大小，初始页面缩放比例为1 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>bootstrap 基本模板</title>
+	<!-- 引入bootstrap样式文件 -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+	<!-- 使IE9以下的浏览器支持HTML5新标签和媒体查询 -->
+	<!--[if lt IE 9]>
+      <script src="./js/html5shiv.js"></script>
+      <script src="./js/respond.js"></script>
+    <![endif]-->
+</head>
+<body style="padding-top: 15px;padding-bottom: 50px;">
+	<div class="container">
+		<h3>路径导航</h3>
+		<ul class="breadcrumb">
+			<li><a href="#">link1</a></li>
+			<li><a href="#">link2</a></li>
+			<li><a href="#">link3</a></li>	
+		</ul>
+		<h3>分页</h3>
+		<ul class="pagination pagination-lg">
+			<li class="disabled"><a href="#">首页</a></li>
+			<li><a href="#">&laquo;</a></li>
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">6</a></li>
+			<li><a href="#">7</a></li>
+			<li><a href="#">8</a></li>
+			<li><a href="#">&raquo;</a></li>
+			<li><a href="#">尾页</a></li>
+		</ul>
+		<ul class="pagination pagination-sm">
+			<li class="disabled"><a href="#">首页</a></li>
+			<li><a href="#">&laquo;</a></li>
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">6</a></li>
+			<li><a href="#">7</a></li>
+			<li><a href="#">8</a></li>
+			<li><a href="#">&raquo;</a></li>
+			<li><a href="#">尾页</a></li>
+		</ul>
+		<h3>标签</h3>
+		<h3>Example heading <span class="label label-default">New</span></h3>
+		<h3>Example heading <span class="label label-primary">New</span></h3>
+		<h3>Example heading <span class="label label-success">New</span></h3>
+		<h3>Example heading <span class="label label-info">New</span></h3>
+		<h3>Example heading <span class="label label-warning">New</span></h3>
+		<h3>Example heading <span class="label label-danger">New</span></h3>
+		<h3>进度条</h3>
+		<!--.progress-bar-* (default primary success info warning danger)-->
+		<div class="progress">
+			<div class="progress-bar progress-bar-default" style="width:25%;"></div>
+		</div>
+		<div class="progress">
+			<div class="progress-bar progress-bar-success" style="width: 50%;"></div>
+		</div>
+		<!-- 进度条带斑马线 -->
+		<div class="progress">
+			<div class="progress-bar progress-bar-success progress-bar-striped active" style="width:75%;"></div>
+		</div>
+		<h3>面板</h3>
+		<div class="row">
+			<div class="col-xs-3">
+				<!-- panel面板容器 panel-*(default,primary,success,info,warning,danger)-->
+				<div class="panel panel-success">
+					<!-- panel面板的标题 -->
+					<div class="panel-heading">
+						<h3 class="panel-title">新的消息<span class="badge">20</span></h3>
+					</div>
+					<!-- panel面板主体内容 -->
+					<div class="panel-body">
+						<p class="text-info text-center">new message 1</p>
+						<p class="text-danger text-center">new message 2</p>
+						<p class="text-success text-center">new message 3</p>
+						<p class="text-primary text-center">new message 4</p>
+					</div>
+					<div class="panel-footer">
+						<p>panel footer contente</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<!-- panel面板容器 panel-*(default,primary,success,info,warning,danger)-->
+				<div class="panel panel-primary">
+					<!-- panel面板的标题 -->
+					<div class="panel-heading">
+						<h3 class="panel-title">新的消息<span class="badge">20</span></h3>
+					</div>
+					<!-- panel面板主体内容 -->
+					<div class="panel-body">
+						<p class="text-info text-center">new message 1</p>
+						<p class="text-danger text-center">new message 2</p>
+						<p class="text-success text-center">new message 3</p>
+						<p class="text-primary text-center">new message 4</p>
+					</div>
+					<div class="panel-footer">
+						<p>panel footer contente</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<!-- panel面板容器 panel-*(default,primary,success,info,warning,danger)-->
+				<div class="panel panel-info">
+					<!-- panel面板的标题 -->
+					<div class="panel-heading">
+						<h3 class="panel-title">新的消息<span class="badge">20</span></h3>
+					</div>
+					<!-- panel面板主体内容 -->
+					<div class="panel-body">
+						<p class="text-info text-center">new message 1</p>
+						<p class="text-danger text-center">new message 2</p>
+						<p class="text-success text-center">new message 3</p>
+						<p class="text-primary text-center">new message 4</p>
+					</div>
+					<div class="panel-footer">
+						<p>panel footer contente</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<!-- panel面板容器 panel-*(default,primary,success,info,warning,danger)-->
+				<div class="panel panel-danger">
+					<!-- panel面板的标题 -->
+					<div class="panel-heading">
+						<h3 class="panel-title">新的消息<span class="badge">20</span></h3>
+					</div>
+					<!-- panel面板主体内容 -->
+					<div class="panel-body">
+						<p class="text-info text-center">new message 1</p>
+						<p class="text-danger text-center">new message 2</p>
+						<p class="text-success text-center">new message 3</p>
+						<p class="text-primary text-center">new message 4</p>
+					</div>
+					<div class="panel-footer">
+						<p>panel footer contente</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h3>列表组</h3>
+		<div class="row">
+			<div class="col-xs-3">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h3 class="panel-title">New Message <span class="badge">24</span></h3>
+					</div>
+					<div class="list-group">
+						<li class="list-group-item text-center"><a href="#">list-group-item-1</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-2</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-3</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-4</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-5</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-6</a></li>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h3 class="panel-title">New Message <span class="badge">24</span></h3>
+					</div>
+					<div class="list-group">
+						<li class="list-group-item text-center"><a href="#">list-group-item-1</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-2</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-3</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-4</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-5</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-6</a></li>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h3 class="panel-title">New Message <span class="badge">24</span></h3>
+					</div>
+					<div class="list-group">
+						<li class="list-group-item text-center"><a href="#">list-group-item-1</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-2</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-3</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-4</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-5</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-6</a></li>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h3 class="panel-title">New Message <span class="badge">24</span></h3>
+					</div>
+					<div class="list-group">
+						<li class="list-group-item text-center"><a href="#">list-group-item-1</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-2</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-3</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-4</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-5</a></li>
+						<li class="list-group-item text-center"><a href="#">list-group-item-6</a></li>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<!-- 引入jquery（bootstrap的js插件库是依赖于jquery） -->
+	<script src="js/jquery.js"></script>
+	<!-- 引入bootstrap的js插件库 -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

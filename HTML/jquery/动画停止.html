@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画停止</title>
+	<style type="text/css">
+		div{
+			width:100px;
+			height:100px;
+			background: red;
+			position:absolute;
+			top:50px;
+		}
+	</style>
+	<script type="text/javascript" src="../jQuery-1.8.3/jQuery-1.8.3.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/*$("input:eq(0)").click(function(){
+				$("div").animate({"left":"500px"},3000)
+						.animate({"top":"300px"},2000)
+						.animate({"width":"300px"},2000)
+						.queue(function(next){
+							$("div").css("background","yellow");
+							next();
+						})
+			})
+			$("input:eq(1)").click(function(){
+				$("div").stop(true,true);//不加参数的时候会停止当前的动画，会自动进行下个动画；
+			})				//加第一个true参数会停止当前的动画，下次在开始动画的时候接着做以后的动画；
+							//加第二个true参数会停止所有的动画，无法再次启动;*/
+			$("input:eq(0)").click(function(){
+				$("div").animate({"left":"500px"},3000)
+						.animate({"top":"300px"},2000)
+						.animate({"width":"300px"},2000).delay(1000)//延时功能
+						.queue(function(next){
+							$("div").css("background","yellow");
+							next();
+						})
+			})
+		})	
+						
+
+	</script>
+</head>
+<body>
+	<input type="button" value="开始">
+	<input type="button" value="结束">
+	<div></div>
+</body>
+</html>

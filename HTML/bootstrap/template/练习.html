@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- 设置IE浏览器始终以最新引擎渲染页面 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- 移动端浏览该页面时页面的大小为视口大小，初始页面缩放比例为1 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>bootstrap 基本模板</title>
+	<!-- 引入bootstrap样式文件 -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+	<!-- 使IE9以下的浏览器支持HTML5新标签和媒体查询 -->
+	<!--[if lt IE 9]>
+      <script src="./js/html5shiv.js"></script>
+      <script src="./js/respond.js"></script>
+    <![endif]-->
+    <style>
+    	.my-row{
+    		margin-left:0px;
+    		margin-right:0px;
+    	}
+    </style>
+</head>
+<body style="padding-top: 50px;">
+	<div class="container">
+		<form action="#" method="post" class="form-horizontal">
+			<div class="row">
+				<div class="form-group">
+					<label class="control-label col-xs-2 col-xs-offset-3">用户名</label>
+					<div class="col-xs-4">
+						<input type="text" class="form-control" placeholder="输入用户名">
+					</div>
+				</div>	
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<label class="control-label col-xs-2 col-xs-offset-3">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+					<div class="col-xs-4">
+						<input type="password" class="form-control" placeholder="输入密码">
+					</div>	
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<div class="col-xs-offset-5 col-xs-4">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox">是否记住密码
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<div class="col-xs-4 col-xs-offset-5">
+						<div class="row my-row">
+							<button class="btn btn-success col-xs-6">登录</button>
+							<button class="btn btn-danger col-xs-6">重置</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<!-- 引入jquery（bootstrap的js插件库是依赖于jquery） -->
+	<script src="js/jquery.js"></script>
+	<!-- 引入bootstrap的js插件库 -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

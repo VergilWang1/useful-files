@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript" src="../jQuery-1.8.3/jquery-1.8.3.js"></script>
+	
+</head>
+<body>
+	<div style="width:100px;height:100px;background:red;">
+		<span style="width:50px;height:50px;background:green;display: block;">123</span>
+	</div>
+	<input type="text" value="">
+	<div class="div">123</div>
+</body>
+<script>
+	/*$("div").on("click",function(e){
+		/*alert(e.target)//点div内的哪个就显示那个
+		//alert(e.currentTarget)//点那个都显示当前的那个，阻止了默认行为。相当于this
+		})
+		
+		$(document).click(function(e){
+			//alert(e.pageX+' '+e.screenX+' '+e.clientX)
+			//alert(e.pageY+' '+e.screenY+' '+e.clientY)
+		})
+		$("input").keyup(function(e){
+		alert(e.which)    //键盘事件
+	})
+	$("div").click(function(e){
+		e.stopPropagation();//阻止冒泡事件
+		alert(1)
+	})
+	$("span").click(function(e){
+		e.stopPropagation();
+		alert(2)
+	})
+	$(document).on("click","div",function(){//on也可以阻止冒泡事件
+		alert(0)
+	})
+	$(document).on("click",".div",function(){
+		$(".div").hide();
+	})
+	$(".div").click(function(e){
+		e.stopPropagation();//阻止冒泡事件
+		$(this).hide();
+	})
+	$(document).click(function(){
+		$("div").show();
+	})
+	$("div").click(function(){
+		alert(1)
+		return false;//即阻止了冒泡事件，又阻止了默认行为;
+	})
+	$("span").click(function(){
+		alert(2)
+		return false;
+	})
+	$(document).on("click",function(){
+		alert(0)
+	})
+	$("div").click(function(e){
+		e.preventDefault();//只阻止默认行为，不阻止事件冒泡;
+		alert(1)
+	})
+	$("span").click(function(e){
+		alert(2)
+	})
+	$(document).on("click",function(){
+		alert(0)
+	})
+	$(".div").click(function(){
+		$(this).hide();
+		return false;
+	})
+	$(document).click(function(){
+		$("div").show();
+	})*/
+
+</script>
+</html>

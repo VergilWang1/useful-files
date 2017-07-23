@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        form{
+            max-width: 400px;
+            margin:25px auto;
+            background-color: aliceblue;
+            color:#666;
+            border-radius:20px;
+        }
+        form h3{
+            text-align: center;
+            padding-top:10px;
+        }
+        ul{
+            list-style:none;
+            padding-top:30px;
+            padding-bottom:30px;
+        }
+        ul li{
+            line-height: 30px;
+            margin:20px;
+            text-align: center;
+            position: relative;
+        }
+        ul li b{
+            position: absolute;
+            top:30px;
+            left:40%;
+            z-index: 1;
+            background-color: azure;
+            color:coral;
+            font-size: 12px;
+            line-height: 12px;
+        }
+        ul li input{
+            width:200px;
+            height:30px;
+            vertical-align: middle;
+            outline:none;
+            border:0;
+            border-radius: 10px;
+            transition:all .5s ease-in-out;
+            margin-left:5px;
+        }
+        ul li input:not(.subm):focus{
+            box-shadow: 2px 2px 5px skyblue inset;
+            transform:scale(1.05);
+        }
+        .subm {
+            color: #fff;
+            background-color: coral;
+            font-size: 16px;
+        }
+        .subm:hover{
+            background-color: brown;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+<form action="#" method="get" name="myForm">
+    <h3>用户登记表</h3>
+    <ul>
+        <li>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：<input type="text" name="user"><b></b></li>
+        <li>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="pwd"><b></b></li>
+        <li>确认密码：<input type="password" name="rePwd"><b></b></li>
+        <li>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：<input type="text" name="age"><b></b></li>
+        <li>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日：<input type="text" name="birthday"><b></b></li>
+        <li>电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：<input type="text" name="tel"><b></b></li>
+        <li>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：<input type="text" name="email"><b></b></li>
+        <li>薪&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资：<input type="range" name="xinzi"></li>
+        <li><input type="submit" name="submit" class="subm" value="提交"></li>
+    </ul>
+</form>
+</body>
+<script type="text/javascript">
+    var myForm=document.myForm;
+    var b=document.getElementsByTagName("b");
+    //console.log(myForm)
+    /*验证用户名*/
+    function checkUser(){
+        var x=/^[a-zA-Z][a-zA-Z0-9]{3,15}$/;
+        if(!x.test(myForm.user.value)){
+            b[0].innerHTML="用户名必须是4到16位只能包含数字和字母，并且第一位是字母";
+            return false;
+        }else{
+            b[0].innerHTML="";
+        }
+    }
+
+    /*验证密码*/
+    function checkPwd(){
+        var x=/^\w{4,16}$/;
+        if(!x.test(myForm.pwd.value)){
+            b[1].innerHTML="密码必须是4到16位包含数字和字母或下划线";
+            return false;
+        }else{
+            b[1].innerHTML="";
+            return true;
+        }
+    }
+
+    /*验证再次输入的密码*/
+    function checkRePwd(){
+        var x=/^\w{4,16}$/;
+        if(myForm.rePwd.value=="" || myForm.rePwd.value!=myForm.pwd.value){
+            b[2].innerHTML="密码不能为空并且两次输入必须一致";
+            return false;
+        }else if(!x.test(myForm.rePwd.value)){
+            b[2].innerHTML="密码必须是4到16位包含数字和字母或下划线";
+            return false;
+        }else{
+            b[2].innerHTML="";
+            return true;
+        }
+    }
+
+    /*验证年龄*/
+    function checkAge(){
+        var x=/^[1-9]\d?$/;
+        if(!x.test(myForm.age.value)){
+            b[3].innerHTML="年龄输入有误";
+            return false;
+        }else{
+            b[3].innerHTML="";
+            return true;
+        }
+    }
+
+    /*验证生日*/
+    function checkBirthday(){
+        var x=/^(1[89]\d|200)\d-(1[120]|0?[1-9])-(3[01]|[12]\d|0?\d)$/;
+        if(!x.test(myForm.birthday.value)){
+            b[4].innerHTML="生日格式为xxxx-xx-xx";
+            return false;
+        }else{
+            b[4].innerHTML="";
+            return true;
+        }
+    }
+
+    /*验证电话*/
+    function checkTel(){
+        var x=/^1[358]\d{9}$/;
+        if(!x.test(myForm.tel.value)){
+            b[5].innerHTML="电话必须以13 15 18开头的11位有效数字";
+            return false;
+        }else{
+            b[5].innerHTML="";
+            return true;
+        }
+    }
+
+    /*验证邮箱*/
+    function checkEmail(){
+        var x=/^[a-zA-Z0-9]+\@[a-zA-Z]+(\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2,3})?)?$/;
+        if(!x.test(myForm.email.value)){
+            b[6].innerHTML='邮箱必须包含"@"和"."';
+            return false;
+        }else{
+            b[6].innerHTML="";
+            return true;
+        }
+    }
+
+    /*添加失焦事件*/
+    myForm.user.onblur=checkUser;
+    myForm.pwd.onblur=checkPwd;
+    myForm.rePwd.onblur=checkRePwd;
+    myForm.age.onblur=checkAge;
+    myForm.birthday.onblur=checkBirthday;
+    myForm.tel.onblur=checkTel;
+    myForm.email.onblur=checkEmail;
+
+    /*提交验证*/
+    myForm.onsubmit=function(){
+        checkUser();
+        checkPwd();
+        checkRePwd();
+        checkAge();
+        checkBirthday();
+        checkTel();
+        checkEmail();
+        var num=0;
+        for(var i=0;i<7;i++){
+            if(b[i].innerHTML==""){
+                num++;
+            }
+        }
+        if(num==7){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
+</html>

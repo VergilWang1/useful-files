@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D音乐背景页面</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+        body{
+            background: url("images/zhou06.jpg");
+            background-size: cover;
+            overflow: hidden;
+        }
+        ul{
+            list-style:none;
+            width:200px;
+            height:200px;
+            position: absolute;
+            top:20%;
+            left:40%;
+            margin-left:-100px;
+            transform-style:preserve-3d;
+            animation: sport 6s linear 0s infinite normal;
+        }
+        ul li{
+            position: absolute;
+            bottom: 0;
+            let:0;
+            background:#000;
+        }
+        ul>li>img{
+             width:200px;
+             height:200px;
+            border:5px solid skyblue;
+            box-sizing:border-box;
+         }
+        ul li:nth-child(1){
+            transform:rotateY(60deg) translateZ(200px);
+        }
+        ul li:nth-child(2){
+            transform:rotateY(120deg) translateZ(200px);
+        }
+        ul li:nth-child(3){
+            transform:rotateY(180deg) translateZ(200px);
+        }
+        ul li:nth-child(4){
+            transform:rotateY(240deg) translateZ(200px);
+        }
+        ul li:nth-child(5){
+            transform:rotateY(300deg) translateZ(200px);
+        }
+        ul li:nth-child(6){
+            transform: translateZ(200px);
+        }
+        @keyframes sport{
+            from{
+                transform: rotateX(10deg) rotateY(0deg);
+            }to{
+                transform: rotateX(10deg) rotateY(360deg);
+            }
+        }
+        ul:hover{
+            animation-play-state: paused;
+        }
+        ul:hover li img{
+            opacity:0.5;
+        }
+        ul li:hover img{
+            opacity:1;
+        }
+        .heart{
+            position: absolute;
+            top: 10%;
+            left:20%;
+            width:200px;
+            height:200px;
+            animation: move 3s linear 0s infinite alternate;
+        }
+        @keyframes move{
+            from{
+                top: 10%;
+                left:20%;
+                opacity:1;
+            }
+            to{
+                top: 50%;
+                left:50%;
+                opacity:0;
+            }
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="images/zhou01.jpg" alt=""></li>
+    <li><img src="images/zhou02.jpg" alt=""></li>
+    <li><img src="images/zhou03.jpg" alt=""></li>
+    <li><img src="images/zhou04.jpg" alt=""></li>
+    <li><img src="images/zhou05.jpg" alt=""></li>
+    <li><img src="images/zhou06.jpg" alt=""></li>
+</ul>
+<img class="heart" src="images/heart1.gif" alt="">
+<audio src="images/Epic Score - Liberators (No Vocals).mp3" autoplay="autoplay" loop="loop"></audio>
+</body>
+</html>

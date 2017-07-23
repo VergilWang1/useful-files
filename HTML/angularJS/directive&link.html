@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令</title>
+    <script type="text/javascript" src="../angular/angular.js"></script>
+</head>
+<body ng-controller="con" ng-init="moves={x:0,y:0,w:50,h:50}">
+    <div canvas ngmove="moves" ng-model="kk">自定义画布</div>
+    <input type="text" ng-model="moves.x">
+    <input type="text" ng-model="moves.y">
+    <p>{{moves}}</p>
+</body>
+<script type="text/javascript">
+    var app = angular.module("app",[]);
+    app.controller("con",function($scope){
+
+    }).directive("canvas",function(){
+        return {
+            restrict:"A",
+            require:'ngModel',
+            transclude:true,
+            scope:{
+                move:"=ngmove"
+            },
+            template:"<div>" +
+            "<p ng-transclude></p>" +
+            "<canvas></canvas>" +
+            "</div>",
+            link:function(scope,elem,attr,ctrl){
+                elem.find("canvas").css("border","1px solid");
+                var canvas = elem.find("canvas")[0];
+                var c = canvas.getContext("2d");
+                var move = scope.move;
+                function draw(){
+                    c.clearRect(0,0,canvas.width,canvas.height);
+                    c.fillStyle = "red";
+                    c.fillRect(move.x,move.y,move.w,move.h);
+                }
+                draw();
+                elem.find("canvas").on("mousemove",function(event){
+                    move.x = event.offsetX;
+                    move.y = event.offsetY;
+                    draw();
+                    ctrl.$setViewValue(move);
+                })
+                scope.$watch("move.x+move.y",function(){
+//                    console.log(scope.move)
+                    draw();
+                })
+            }
+        }
+    })
+</script>
+</html>

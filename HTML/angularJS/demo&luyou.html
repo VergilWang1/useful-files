@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>路由</title>
+	<script src="../angular.js"></script>
+	<script src="../angular-route.js"></script>
+</head>
+<body ng-controller="con">
+	<ul>
+		<li><a href="#">首页</a></li>
+		<li><a href="#/main">不爱北风</a></li>
+		<li><a href="#/first">不爱北风2</a></li>
+		<li><a href="#/second">不爱北风3</a></li>
+	</ul>
+	<div ng-view></div>	
+</body>
+<script>
+	var app = angular.module("app",["ngRoute"]);
+	app.controller("con",function($scope){
+
+	}).config(function($routeProvider){
+		$routeProvider.when("/",{template:'<div>首页</div>'})
+			.when("/main",{template:'<div>不爱北风</div>'})
+			.when("/first",{template:'<div>不爱北风2</div>'})
+			.when("/second",{template:'<div>不爱北风2</div>'})
+			.otherwise({redirecTo:"/"});
+	})
+</script>
+</html>

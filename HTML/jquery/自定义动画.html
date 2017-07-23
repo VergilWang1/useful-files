@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义动画</title>
+	<style type="text/css">
+		div{
+			width:50px;
+			height:50px;
+			background: green;
+			color:red;
+		}
+		p{
+			width:50px;
+			height:50px;
+			background: green;
+			color:red;
+		}
+	</style>
+	<script type="text/javascript" src="../jQuery-1.8.3/jquery-1.8.3.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("input[type='button']").click(function(){
+				$(this).next().animate({
+								"width":"200px",
+								"height":"100px",
+								"opacity":"0.5"
+							},2000,function(){
+					alert("执行完毕")
+				})
+			})
+			$("p").click(function(){
+				$(this)
+					.animate({"width":"100px"},1000)
+					.animate({"height":"200px"},1000)
+					.queue(function(next){
+						$(this).css("color","green");
+						next();//旧版本里面用$(this).dequeque();代替next();
+				})				//在回调函数里面用$(this).clearQueue();清除动画；
+					.hide(1000)
+					
+			})
+		})
+	</script>
+</head>
+<body>
+	<input type="button" value="自定义动画">
+	<div></div>
+	<p>12</p>
+</body>
+</html>

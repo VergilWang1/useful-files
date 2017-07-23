@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas画钟</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        #canvas{
+            margin:100px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="200px" height="200px"></canvas>
+</body>
+<script type="text/javascript">
+    var c=document.getElementById("canvas").getContext("2d");
+    var width= c.canvas.width;
+    var height= c.canvas.height;
+    var r=width/2;
+    //console.log(height)
+    function drawHour(hour,minute){
+        c.save();
+        c.lineWidth="5";
+        c.moveTo(0,0);
+        c.lineTo(Math.sin(Math.PI/6*hour+(Math.PI/30*minute)/12)*(r-50),-Math.cos(Math.PI/6*hour+(Math.PI/30*minute)/12)*(r-50));
+        c.stroke();
+        c.restore();
+    }
+    function drawMinute(minute,second){
+        c.save();
+        c.lineWidth="3";
+        c.moveTo(0,0);
+        c.lineTo(Math.sin(Math.PI/30*minute+Math.PI/30*second/60)*(r-45),-Math.cos(Math.PI/30*minute+Math.PI/30*second/60)*(r-45));
+        c.stroke();
+        c.restore();
+    }
+    function drawSecond(second){
+        c.save();
+        c.lineWidth="1";
+        c.moveTo(0,0);
+        c.lineTo(Math.sin(Math.PI/30*second)*(r-40),-Math.cos(Math.PI/30*second)*(r-40));
+        c.stroke();
+        c.restore();
+    }
+    function drawClock(){
+        c.clearRect(0,0,200,200);
+        c.save();
+        c.beginPath();
+        c.translate(r,r);
+        c.lineWidth=10;
+        c.arc(0,0,r-5,0,Math.PI*2);
+        c.closePath();
+        c.stroke();
+        c.font="18px Arial";
+        c.textAlign="center";
+        c.textBaseline="middle";
+//    console.log(Math.sin(Math.PI*2/12))
+        for(var i = 1;i<=12;i++){
+            c.fillText(i,Math.sin(Math.PI/6*i)*(r-30),-Math.cos(Math.PI/6*i)*(r-30));
+        }
+        var time=new Date();
+        drawHour(time.getHours(),time.getMinutes());
+        drawMinute(time.getMinutes(),time.getSeconds());
+        drawSecond(time.getSeconds());
+        c.restore();
+    }
+    drawClock();
+    setInterval(drawClock,1000);
+</script>
+</html>

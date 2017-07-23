@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画</title>
+	<style type="text/css">
+		p{
+			width:50px;
+			text-align: center;
+			line-height:30px;
+			color:red;
+			background: yellow;
+			float:left;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript" src="../jQuery-1.8.3/jquery-1.8.3.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			/*$("input[type='button']").click(function(){
+				$(this).next().show(1000,function oo(){
+					$(this).next().show(1000,oo);  //$(this)是之前的对象；
+				})
+			})*/
+			$("[type='button']").click(function(){
+				$(this).slideUp().slideDown().fadeOut().fadeIn();
+			})
+		})
+	</script>
+</head>
+<body>
+	<input type="button" value="动画">
+	<p>你</p><p>好</p><p>吗</p>
+</body>
+</html>

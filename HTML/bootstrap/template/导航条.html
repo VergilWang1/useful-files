@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- 设置IE浏览器始终以最新引擎渲染页面 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- 移动端浏览该页面时页面的大小为视口大小，初始页面缩放比例为1 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>bootstrap 基本模板</title>
+	<!-- 引入bootstrap样式文件 -->
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+	<!-- 使IE9以下的浏览器支持HTML5新标签和媒体查询 -->
+	<!--[if lt IE 9]>
+      <script src="./js/html5shiv.js"></script>
+      <script src="./js/respond.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<!-- 定义导航条的整体容器 -->
+	<nav class="navbar navbar-inverse">
+		<div class="container">  <!--是否需要添加container根据实际情况而定-->
+			<!-- 定义导航的头部内容 -->
+			<div class="navbar-header">
+				<!-- 导航中的logo -->
+				<a href="#" class="navbar-brand">Ibeifeng</a>
+				<!-- 控制在小屏下下拉菜单的显示与隐藏按钮 -->
+				<button class="navbar-toggle" data-toggle="collapse" data-target="#my-collapse">
+					<i class="icon-bar"></i>
+					<i class="icon-bar" ></i>
+					<i class="icon-bar"></i>
+				</button>
+			</div>
+			<!-- 定义导航条在小屏下会隐藏的内容 -->
+			<div class="navbar-collapse collapse" id="my-collapse">
+				<!-- 导航条内部的导航菜单 -->
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Link</a></li>
+					<li><a href="#">Link</a></li>
+					<li class="dropdown">
+						<!-- 下拉菜单触发按钮 -->
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Dropdown
+							<span class="caret"></span>
+						</a>
+						<!-- 下拉菜单内容 -->
+						<ul class="dropdown-menu">
+							<li><a href="#">item-1</a></li>
+							<li><a href="#">item-2</a></li>
+							<li><a href="#">item-3</a></li>
+							<li class="divider"></li>
+							<li><a href="#">item-4</a></li>
+							<li class="divider"></li>
+							<li><a href="#">item-5</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- 导航条内的内联表单 -->
+				<form action="#" class="navbar-form navbar-left">
+					<div class="form-group"> <!--表单控件组-->
+						<input type="text" class="form-control" placeholder="Search">
+						<button class="btn btn-success">Submit</button>
+					</div>
+				</form>
+				<!-- 导航条内右浮动的导航菜单 -->
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Link</a></li>
+					<li> <!--做成下拉菜单-->
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						Dropdown
+						<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">item-1</a></li>
+							<li><a href="#">item-2</a></li>
+							<li><a href="#">item-3</a></li>
+							<li class="divider"></li>
+							<li><a href="#">item-5</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+	</nav>
+	<!-- 引入jquery（bootstrap的js插件库是依赖于jquery） -->
+	<script src="js/jquery.js"></script>
+	<!-- 引入bootstrap的js插件库 -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
