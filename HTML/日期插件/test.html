@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="css/calendar.css">
+</head>
+<body>
+	<input type="text" id="txt">
+	<div class="calendar" id="calendar"></div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/calendar_core.js"></script>
+</html>
+<script>
+	$(function(){
+		$("#txt").hover(function(){
+			$("#calendar").show();
+		});
+		$(document).click(function(){
+			$("#calendar").hide();
+		});
+		$("#calendar").click(function(event){
+			event.stopPropagation();
+			$("#calendar").show();
+		});
+	});
+</script>
