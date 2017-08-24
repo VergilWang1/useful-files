@@ -1,0 +1,74 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+body{
+    background: url("../images/bg.png");
+}
+body>div{
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+body>div>img{
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.page1{
+    width: 80%;
+}
+.page1>img{
+    width: 80%;
+}
+.page2{
+    width: 80%;
+}
+.page2>img{
+    width: 80%;
+}
+
+.sportX1{
+    animation: sportX1 5s 1 linear forwards;
+}
+@keyframes sportX1 {
+    from{
+        transform: translate(0,0);
+    }
+    to{
+        transform: translate(27%,0);
+    }
+}
+.sportX2{
+    animation: sportX2 5s 1 linear forwards;
+}
+@keyframes sportX2 {
+    from{
+        transform: translate(0,0);
+    }
+    to{
+        transform: translate(-17%,0);
+    }
+}
+.blink2{
+    animation: blink2 1s 2 linear;
+}
+@keyframes blink2{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0.1;
+    }
+}
