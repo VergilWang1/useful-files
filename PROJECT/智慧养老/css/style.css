@@ -26,21 +26,159 @@ body>div>img{
     bottom: 0;
     margin: auto;
 }
-.page1{
-    width: 80%;
-}
 .page1>img{
     width: 80%;
 }
-.page2{
-    width: 80%;
-}
 .page2>img{
-    width: 80%;
+    /*display: block;*/
+    width: 65%;
 }
-
+.page2>img.page2-floor{
+    transform: scaleX(2);
+}
+.page2>img.page2-18{
+    transform: translate(27%,-5%);
+}
+.page2>img.page2-19{
+    transform: translate(27%,-5%);
+}
+.page2>img.page2-20{
+    transform: translate(27%,-5%);
+}
+.page3>img{
+    width: 65%;
+}
+.page3>img.page3-1{
+    transform-origin: 26.5% 50%;
+    transform: scaleX(2.1);
+}
+.page3>img.page3-floor{
+    transform: scaleX(2);
+}
+.page4>img{
+    width: 65%;
+}
+.page4>img.page4-floor{
+    transform: scaleX(2);
+}
+.page4>img.page4-16{
+    transform: translate(27%,-10%);
+}
+.page4>img.page4-17{
+    transform: translate(27%,-10%);
+}
+.page5>img{
+    width: 65%;
+}
+.page5>img.page5-1{
+    transform-origin: 26.5% 50%;
+    transform: scaleX(2.1);
+}
+.page5>img.page5-floor{
+    transform: scaleX(2);
+}
+.page6>img{
+    width: 65%;
+}
+.page6>img.page6-floor{
+    transform: scaleX(2);
+}
+.page6>img.page6-22{
+    transform: translate(27%,-10%);
+}
+.page6>img.page6-23{
+    transform: translate(27%,-10%);
+}
+.page7>img{
+    width: 65%;
+}
+.page7>img.page7-1{
+    transform-origin: 26.5% 50%;
+    transform: scaleX(2.1);
+}
+.page7>img.page7-floor{
+    transform: scaleX(2);
+}
+.page8>img{
+    width: 65%;
+}
+.page8>img.page8-floor{
+    transform: scaleX(2);
+}
+.page8>img.page8-22{
+    transform: translate(27%,-10%);
+}
+.page8>img.page8-23{
+    transform: translate(27%,-10%);
+}
+.page8>img.page8-6{
+    transform: translate(-7%,-3%);
+}
+.page8>img.page8-17{
+    transform: translate(27%,-10%);
+}
+.page8>img.page8-18{
+    transform: translate(27%,-10%);
+}
+.page9>img{
+    width: 65%;
+}
+.page9>img.page9-1{
+    transform-origin: 26.5% 50%;
+    transform: scaleX(2.1);
+}
+.page9>img.page9-floor{
+    transform: scaleX(2);
+}
+.page10>img{
+    width: 65%;
+}
+.page10>img.page10-floor{
+    transform: scaleX(2);
+}
+.page10>img.page10-1{
+    transform: translate(27%,-10%);
+}
+.page10>img.page10-2{
+    transform: translate(27%,-10%);
+}
+.page11>img{
+    width: 65%;
+}
+.page11>img.page11-1{
+    transform-origin: 26.5% 50%;
+    transform: scaleX(2.1);
+}
+.page11>img.page11-floor{
+    transform: scaleX(2);
+}
+.page12>img{
+    width: 65%;
+}
+.page12>img.page12-floor{
+    transform: scaleX(2);
+}
+.page12>img.page12-4{
+    transform: translate(27%,-10%);
+}
+.page12>img.page12-5{
+    transform: translate(27%,-10%);
+}
+.page13>img{
+    width: 65%;
+}
+.page13>img.page13-1{
+    transform-origin: 26.5% 50%;
+    transform: scaleX(2.1);
+}
+.page13>img.page13-floor{
+    transform: scaleX(2);
+}
+.page14>img{
+    width: 65%;
+}
 .sportX1{
-    animation: sportX1 5s 1 linear forwards;
+    animation: sportX1 6s 1 linear forwards;
 }
 @keyframes sportX1 {
     from{
@@ -51,7 +189,7 @@ body>div>img{
     }
 }
 .sportX2{
-    animation: sportX2 5s 1 linear forwards;
+    animation: sportX2 6s 1 linear forwards;
 }
 @keyframes sportX2 {
     from{
@@ -70,5 +208,29 @@ body>div>img{
     }
     to{
         opacity: 0.1;
+    }
+}
+.coverX{
+    transform-origin: 67% 50%;
+    animation: coverX 3s 1 linear forwards;
+}
+@keyframes coverX{
+    from{
+        transform: scaleX(1);
+    }
+    to{
+        transform: scaleX(0);
+    }
+}
+.coverX2{
+    transform-origin: 83% 50%;
+    animation: coverX2 4s 1 linear forwards;
+}
+@keyframes coverX2{
+    from{
+        transform: scaleX(1);
+    }
+    to{
+        transform: scaleX(0);
     }
 }
