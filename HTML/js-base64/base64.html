@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<div style="position: absolute;left: 0;right: 0;bottom: 0;top: 0;margin: auto;height: 100px;width: 300px">
+		<input type="text" class="base64Test">
+
+		<input type="button" value="加密" class="baseJiaMi">
+		<input type="button" value="解密" class="baseJieMi">
+
+		<div>输出: <span class="log"></span></div>
+	</div>
+</body>
+<script src="./base64.min.js"></script>
+<script>
+	document.querySelector(".baseJiaMi").onclick = function(){
+		var val = document.querySelector(".base64Test").value;
+		document.querySelector(".log").innerHTML = Base64.encode(val);
+	}
+	document.querySelector(".baseJieMi").onclick = function(){
+		var val = document.querySelector(".base64Test").value;
+		document.querySelector(".log").innerHTML = Base64.decode(val);
+	}
+</script>
+</html>
