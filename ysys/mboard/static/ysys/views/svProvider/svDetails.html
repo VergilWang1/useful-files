@@ -1,0 +1,54 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row" ng-controller="svDetails">
+        <div class="title-path">
+            <a href="">云生物</a> >
+            <a href="">项目流程</a> >
+            <a href="">项目流程详情</a>
+        </div>
+        <div class="col-xs-12">
+            <ul ng-repeat="pro in proList">
+                <li>
+                    项目内容：{{pro.content}}
+                </li>
+                <li>
+                    项目流程：{{pro.name}}
+                </li>
+                <li>
+                    项目负责人：{{pro.responsible}}
+                </li>
+                <li>
+                    联系方式：{{pro.phone}}
+                </li>
+                <li>
+                    电子邮件：{{pro.email}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-12">
+            <input type="button" class="btn btn-info" value="项目子流程">
+
+            <table class="table">
+                <tr>
+                    <th class="text-center">项目内容</th>
+                    <th class="text-center">开始状态</th>
+                    <th class="text-center">结束状态</th>
+                    <th class="text-center">更新状态</th>
+                    <th class="text-center">预计周期</th>
+                    <th class="text-center">负责人</th>
+                    <th class="text-center">联系方式</th>
+                    <th class="text-center">电子邮件</th>
+                </tr>
+                 <tr ng-repeat="info in subInfo">
+                   <td>{{info.name}}</td>
+                   <td>{{info.start_state}}</td>
+                   <td>{{info.stop_state}}</td>
+                   <td>{{info.update_state}}</td>
+                   <td>{{info.cycle}}</td>
+                   <td>{{info.responsible}}</td>
+                   <td>{{info.phone}}</td>
+                   <td>{{info.email}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

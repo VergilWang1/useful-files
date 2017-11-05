@@ -1,0 +1,31 @@
+.knowledge-top{
+	height: 75rpx;
+}
+.knowledge-top text{
+	font-size: 35rpx;
+}
+.knowledge-top view{
+	float: left;
+	text-align: center;
+	width: 50%;
+	line-height: 75rpx;
+}
+.active text{
+	border-bottom: 5rpx solid #50ddcf;
+	color: #50ddcf;
+}
+.knowledge-content{
+	background: #ebebeb;
+	height: 100%;
+}
+.content-item{
+	color: #5a5c5c;
+	font-size: 35rpx;
+	float: left;
+	width: 50%;
+	height: 256rpx;
+	line-height: 256rpx;
+	text-align: center;
+	border: 1rpx solid #dcdbdb;
+	box-sizing: border-box;
+}

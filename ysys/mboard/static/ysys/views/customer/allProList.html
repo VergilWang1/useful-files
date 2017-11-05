@@ -1,0 +1,301 @@
+<div ng-controller="allProList">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <form class="form-inline pull-right" style="padding: 20px">
+                <div class="form-group clearfix">
+                    <div class="col-sm-8 col-xs-12 clearfix" style="margin-top: 10px;">
+                        <div class="row">
+                            <div class="input-group pull-right">
+                                <input type="text" ng-model="searchPro" class="form-control">
+                                <span class="input-group-addon" placeholder="搜索" ng-click="searchProBtn()">
+                                    <img class="search-img" src="../../static/ysys/images/search.png" alt="">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4 col-xs-12 pull-right" style="margin-top: 10px;">
+                        <div class="row text-right">
+                            <a ui-sref="index.createPro" class="btn" style="background: #46aad1;color: #fff">创建项目</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="col-xs-12 allProlist">
+                <div class="row">
+                    <div class="text-center" ng-if="hiddenPro">don't have project</div>
+                    <div class="col-sm-4 col-xs-12 allProlist-box" ng-repeat="pro in proList">
+                        <div class="allProlist-content" pro-list-hover>
+                            <a ui-sref="index.proManage" ng-click="saveProIDDetail()" class="allProlist-link" style="height: 142px" >点击查看项目</a>
+                            <div class="allProList-left">
+
+                            </div>
+                            <ul class="allProLisr-right clearfix">
+                                <li class="createDate">
+                                    <span class="pull-left text-muted">{{pro.create_date}}</span>
+                                    <div class="text-right text-muted hiddenEllipsis" style="color: #46aad1">{{pro.label}}</div>
+                                </li>
+                                <li class="hiddenID">
+                                    隐藏id：<span>{{pro.id}}</span>
+                                </li>
+                                <li class="proNum">
+                                    项目编号：<span>{{pro.identifier}}</span>
+                                </li>
+                                <li class="hiddenEllipsis">
+                                    项目内容：<span>{{pro.content}}</span>
+                                </li>
+                                <li>
+                                    完成时间：<span>{{pro.totalCycleTime}}</span>
+                                </li>
+                                <li>
+                                    <span class="pull-left">项目进度：</span>
+                                    <div class="progress" style="margin-left: 90px; margin-right: 30px;">
+                                        <div class="progress-bar" style="background: #46aad1"  ng-style="pro.progress">{{pro.progress.width}}</div>
+                                    </div>
+                                </li>
+                                <li style="height: 1px; background: #46aad1; margin: -5px -10px 5px -10px"></li>
+                                <li class="">
+                                    <button class="font-icon icon-pencil" data-toggle="tooltip" data-placement="left" title="样本信息" ng-show="!pro.take_sample_date || !pro.sampling_address" ng-click="saveProID()"  ui-sref="index.createSimple">
+                                        <!--<i class="fa fa-pencil" aria-hidden="true"></i>-->
+                                    </button>
+                                    <button class="font-icon icon-confirm" data-toggle="modal" data-toggle="tooltip" data-placement="left" title="确认项目报告" ng-show="!pro.complete && pro.report && !pro.report.customer_confirm && pro.report.yunbio_confirm" ng-click="TK1()" pro-list-click data-target="#confirm">
+                                        <!--<i class="fa fa-check" aria-hidden="true"></i>-->
+                                    </button>
+                                    <button ng-disabled="{{PJdisabled}}" data-toggle="modal" data-target="#svEvaluate" data-toggle="tooltip" data-placement="left" title="服务商评价" ng-show="pro.complete" class="font-icon icon-evaluate" ng-click="svEvaCli()" pro-list-click>
+                                        <!--<i class="fa fa-ellipsis-h" aria-hidden="true"></i>-->
+                                    </button>
+                                    <button ng-disabled="{{PJdisabled}}" data-toggle="modal" data-target="#wlEvaluate" data-toggle="tooltip" data-placement="left" title="物流评价" ng-show="pro.accept_sample_complete" class="font-icon icon-evaluate" ng-click="wlEvaCli()" pro-list-click>
+                                        <!--<i class="fa fa-ellipsis-h" aria-hidden="true"></i>-->
+                                    </button>
+                                    <button class="font-icon icon-historyReport" data-toggle="tooltip" data-placement="left" title="历史报告" ng-click="saveProID()" ui-sref="index.downLoadReport">
+                                        <!--<i class="fa fa-pencil" aria-hidden="true"></i>-->
+                                    </button>
+                                    <button class="font-icon icon-projectReport" data-toggle="tooltip" data-placement="left" title="项目资料" ng-click="TKUploadPro()">
+                                        <!--<i class="fa fa-pencil" aria-hidden="true"></i>-->
+                                    </button>
+                                    <button class="font-icon icon-newSimple" data-toggle="tooltip" data-placement="left" title="重新备样" ng-hide="pro.complete" ng-click="againSimple()">
+                                        <!--<i class="fa fa-pencil" aria-hidden="true"></i>-->
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--分页-->
+            <div ng-include="'../../static/ysys/views/common/pagination.html'"></div>
+        </div>
+    </div>
+
+    <!--重新备样弹框-->
+    <div class="modal fade bs-example-modal-sm" id="TKAgainBY">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body text-center h4">
+                    是否需要重新备样?
+                </div>
+                <div class="modal-footer">
+                    <div class="col-xs-6 text-right">
+                        <input type="button" class="btn btn-danger" data-dismiss="modal" ng-click="confirmTKAgain()" value="确定">
+                    </div>
+                    <div class="col-xs-6 text-left">
+                        <input type="button" class="btn" style="background: #46aad1;color: #fff;" data-dismiss="modal" value="取消">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--项目报告确认弹框-->
+    <form class="modal fade" id="confirm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="pull-right" data-dismiss="modal">x</span>
+                    <div class="modal-title h4">
+                        确认项目报告
+                    </div>
+                </div>
+                <div class="modal-body clearfix" style="font-size: 16px;">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="" class="control-label TKHiddenID hiddenID"> 隐藏ID: <span></span></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label for="" class="control-label KTproNum" style="font-weight: normal"> 项目编号: <span></span></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="" class="control-label KTcreateDate" style="font-weight: normal"> 创建日期: <span></span></label>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: -12px">
+                        <div class="col-xs-12">
+                            <span for="" class="control-label">
+                                报<span style="display: inline-block;width: 31px;"></span>告:<span ng-hide="hasFile">无报告</span>
+                                <span ng-if="hasFile">
+                                    {{fileName}}
+                                    <button type="button" ng-click="downLoad()" class="btn"><i class="fa fa-download" aria-hidden="true"></i></button>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div ng-show="hasFile" style="margin-bottom:10px" class="col-xs-12">
+                            报告无误，项目可安排后续工作。
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-4">
+                            <input type="button" data-dismiss="modal" ng-click="TKConfirm()" ng-disabled="!hasFile" style="background: #46aad1;color: #fff;" class="btn  col-xs-4" value="确认">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--物流评价-->
+    <form class="modal fade" id="wlEvaluate">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span data-dismiss="modal" class="pull-right">x</span>
+                    <div class="modal-title h4">
+                        物流评价
+                    </div>
+                </div>
+                <div class="modal-body clearfix" style="font-size: 14px;">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="" class="control-label TKHiddenID hiddenID"> 隐藏ID: <span></span></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label for="" class="control-label KTproNum" style="font-weight: normal"> 项目编号: <span></span></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="" class="control-label KTcreateDate" style="font-weight: normal"> 创建日期: <span></span></label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            <label for="" class="control-label" style="font-weight: normal">
+                                物流星级: 
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <stars rating-value="logistics_star" hover-value="hoverVal" max="max" on-hover="onHover" on-leave="onLeave"></stars>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group clearfix">
+                        <div class="col-sm-4">
+                            <label for="" class="control-label" style="font-weight: normal">
+                                物流满意项: 
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="checkbox-inline">
+                                <input ng-model="logistics_speed"  type="checkbox">时效
+                            </div>
+                            <div class="checkbox-inline">
+                                <input ng-model="logistics_specialitys"  type="checkbox">专业
+                            </div>
+                            <div class="checkbox-inline">
+                                <input ng-model="logistics_attitude"  type="checkbox">态度
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <div class="col-sm-4">
+                            <label for="" class="control-label" style="font-weight: normal">
+                                物流评价:
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <textarea ng-model="logistics_comment" class="col-xs-12" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12" style="margin-top: 10px">
+                            <input type="button" data-dismiss="modal" ng-click="TKWlEvaluate()" style="background: #46aad1;color: #fff;" class="btn col-xs-4 col-xs-offset-4" value="完成">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--服务商评价-->
+    <form class="modal fade" id="svEvaluate">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span data-dismiss="modal" class="pull-right">x</span>
+                    <div class="modal-title h4">
+                        服务商评价
+                    </div>
+                </div>
+                <div class="modal-body clearfix" style="font-size: 14px;">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label for="" class="control-label TKHiddenID hiddenID"> 隐藏ID: <span></span></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label for="" class="control-label KTproNum" style="font-weight: normal"> 项目编号: <span></span></label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="" class="control-label KTcreateDate" style="font-weight: normal"> 创建日期: <span></span></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            <label for="" class="control-label" style="font-weight: normal">
+                                服务商星级: 
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <stars rating-value="service_star" hover-value="hoverVal" max="max" on-hover="onHover" on-leave="onLeave"></stars>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <div class="col-sm-4">
+                            <label for="" class="control-label" style="font-weight: normal">
+                                服务商满意项: 
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="checkbox-inline">
+                                <input ng-model="service_speed" type="checkbox">时效
+                            </div>
+                            <div class="checkbox-inline">
+                                <input ng-model="service_specialitys" type="checkbox">专业
+                            </div>
+                            <div class="checkbox-inline">
+                                <input ng-model="service_attitude" type="checkbox">态度
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            <label for="" class="control-label" style="font-weight: normal">
+                                服务商评价:
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <textarea ng-model="service_comment" class="col-xs-12" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12" style="margin-top: 10px">
+                            <input type="button" data-dismiss="modal" ng-click="TKSvEvaluate()" class="btn col-xs-4 col-xs-offset-4" style="background: #46aad1;color: #fff;" value="完成">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

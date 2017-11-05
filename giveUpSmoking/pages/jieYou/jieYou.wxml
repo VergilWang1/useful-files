@@ -1,0 +1,28 @@
+<view class='container-box' style='background: #e9e9e9'>
+	<view class='top-nav'>热门活动</view>
+	<view class='top-view'>
+		<image src='{{topImgUrl}}'></image>
+	</view>
+	<view class='content-view'>
+		<view class='content-box' bindtap='bindContentTap' wx:for="{{contentBox}}" wx:for-item="item" data-id="{{index+1}}">
+			<image class='content-box-img' src='{{item.url}}'></image>
+			<view class='contnet-box-txt'>{{item.txt}}</view>
+		</view>
+		<view class='content-line'></view>
+	</view>
+	<view class='content-bottom'>
+			<view style='margin-left: 20rpx;line-height: 78rpx'>{{bottomTxt}}</view>
+			<swiper indicator-dots="{{indicatorDots}}"
+				autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+				<block wx:for="{{imgUrls}}" wx:for-item="item">
+					<swiper-item>
+						<view class='swiper-item-box' bindtap='swiperItemTap' wx:for="{{item.img}}" wx:for-item="key" data-id="{{key.id}}">
+							<image src='{{key.url}}'></image>
+							<view class='title'>{{key.title}}</view>
+							<view class='swiper-txt'>{{key.txt}}</view>
+						</view>
+					</swiper-item>
+				</block>
+			</swiper>
+	</view>
+</view>

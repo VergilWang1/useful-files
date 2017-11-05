@@ -1,0 +1,47 @@
+.container-top{
+	text-align: center;
+	padding: 80rpx 55rpx;
+	color: #fff;
+	font-size: 35rpx;
+}
+.container-content{
+	width: 560rpx;
+	height: 560rpx;
+	background: #fff;
+	margin: 30rpx 0 100rpx 65rpx;
+	border-radius: 20rpx;
+	padding: 30rpx 35rpx 50rpx 45rpx;
+}
+.content-img-url{
+	width: 210rpx;
+	height: 248rpx;
+	margin: 68rpx 0 0 173rpx;
+}
+.container-content-text{
+	text-align: center;
+ padding-top: 65rpx;
+ font-size: 35rpx;
+}
+.begin-make{
+	width: 420rpx;
+	hegiht: 70rpx;
+	border-radius: 55rpx;
+}
+.plan-title{
+	font-size: 35rpx;
+	font-weight: bold;
+	line-height: 70rpx;
+	padding-bottom: 30rpx;
+	overflow: hidden;
+}
+.plan-title-item{
+	font-size: 35rpx;
+	line-height: 100rpx;
+}
+.index-page{
+	color: #14b0ae;
+	font-size:  35rpx;
+}
+.pagenation{
+	float: right;
+}

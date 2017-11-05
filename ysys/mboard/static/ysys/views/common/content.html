@@ -1,0 +1,30 @@
+<!-- Wrapper-->
+<div id="wrapper" style="background: #fff">
+
+    <!-- Navigation -->
+    <div class="se1 wrapperHeight" ng-if="customer"  ng-include="'../../static/ysys/views/common/navigation.html'"></div>
+    <div class="se2 wrapperHeight" ng-if="SVProvider"  ng-include="'../../static/ysys/views/common/svProNav.html'"></div>
+    <div class="se4 wrapperHeight" ng-if="logProvider"  ng-include="'../../static/ysys/views/common/wuliuNavgation.html'"></div>
+    <div class="se3 wrapperHeight" ng-if="YSone"  ng-include="'../../static/ysys/views/common/yunSW.html'"></div>
+
+    
+    
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg {{$state.current.name}} clearfix">
+
+        <!-- Page wrapper -->
+        <div ng-include="'../../static/ysys/views/common/topnavbar.html'"></div>
+
+        <!-- Main view  -->
+        <div ui-view></div>
+
+
+        <!-- Footer -->
+        <div ng-include="'../../static/ysys/views/common/footer.html'"></div>
+
+    </div>
+    <!-- End page wrapper-->
+
+</div>
+<!-- End wrapper-->

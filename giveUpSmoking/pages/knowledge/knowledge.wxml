@@ -1,0 +1,11 @@
+<view class="container-box">
+	<view class='knowledge-top'>
+		<view bindtap='selectedActive1' class='{{selectedActive1}}'> <text>吸烟</text>	</view>
+		<view bindtap='selectedActive2' class='{{selectedActive2}}'> <text>戒烟</text></view>
+	</view>
+	<view class='knowledge-content'>
+		<view class='content-item' wx:for="{{content}}" wx:for-item="item" bindtap='toGamePage'>
+			{{item.txt}}
+		</view>
+	</view>
+</view>

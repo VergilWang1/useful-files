@@ -1,0 +1,26 @@
+<div class="wrapper wrapper-content animated fadeInRight" style="margin: 0 -15px">
+    <div class="title-path">
+        <a href="javascript:;" ng-click="backHomePage()">云生物</a> >
+        <a href="">历史报告</a>
+    </div>
+    <div ng-controller="downLoadReport">
+        <table class="table">
+            <tr>
+                <th class="text-center">日期</th>
+                <th class="text-center">名称</th>
+                <th class="text-center">操作</th>
+            </tr>
+            <tr class="text-center" ng-repeat="pro in proFileInfo">
+                <td style="line-height: 30px;">
+                    {{pro.date}}
+                </td>
+                <td style="line-height: 30px;">
+                    {{pro.name}}
+                </td>
+                <td>
+                    <input type="button" ng-click="downloadPro()" class="btn" style="background: #46aad1;color: #fff;" value="下载">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

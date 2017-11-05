@@ -1,0 +1,35 @@
+.container-box{
+	height: 100vh;
+	overflow: hidden;
+	font-family: "Arail";
+}
+.container-bg{
+	position: absolute;
+	height: 99vh;
+	width: 100%;
+	z-index: -1;
+}
+view{
+	color: #7a7a7a;
+	font-size: 14px;
+}
+button{
+	background: #5fd1d0;
+	color: #fff;
+}
+.hide{
+	display: none;
+}
+.show{
+	display: block;
+}
+.txt-blue{
+	color: #14b0ae;
+	font-size: 40rpx;
+}
+.container-bg{
+	position: absolute;
+	z-index: -1;
+	height: 100%;
+	width: 100%;
+}

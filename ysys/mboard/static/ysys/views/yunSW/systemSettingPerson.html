@@ -1,0 +1,44 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="title-path">
+            <a ui-sref="index.yunSWHome">云生物</a> >
+            <a href="">系统设置</a>
+        </div>
+        <div ng-controller="systemSettingPerson">
+            <div class="col-sm-5">
+                <ul class="systemSetUl" ng-repeat="info in sysTableInfos">
+                    <li class="systemNew">{{info.name}}</li>
+                    <li>
+                        <div class="col-sm-4">电子邮箱：</div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" ng-model="info.email">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col-sm-4">邮箱密码：</div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" ng-disabled="info.canChange" ng-model="info.email_password">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="col-sm-4">联系号码：</div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" ng-model="info.phone">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-6">
+                注：<span>系统发送消息的<联系号码>为 SMTP 地址。STMP 邮箱服务器, 如: </span><br>
+
+                    <span style="padding-left: 25px">新浪cn邮箱: smtp.sina.cn</span><br>
+
+                    <span style="padding-left: 25px">网易126邮箱: smtp.126.com</span>
+            </div>
+            <div class="col-xs-12" style="margin-top: 10px"> 
+                <input type="button" class="btn" style="background: #46aad1;color: #fff;" value="保存设置" ng-click="saveSysInfos()">
+            </div>
+        </div>
+    </div>
+</div>

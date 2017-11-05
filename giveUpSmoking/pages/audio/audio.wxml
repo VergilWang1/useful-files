@@ -1,0 +1,34 @@
+<view class="container-box">
+	<image src='{{containerBg}}' class='container-bg'></image>
+	<view class='title'>——音频——</view>
+	<view class='song-name'>{{songName}}</view>
+	<view class='song-img'>
+		<image class='play-img' src='{{playImg}}'></image>
+		<image class='play-img-little rot' src='{{playImglittle}}'></image>
+	</view>
+	<view>
+
+	</view>
+	<!-- 歌词 -->
+	<view class='song-lyrics'>
+	{{songLyrics}}
+		<!-- <view>{{songLyrics[0]}}</view>
+		<view class='now-lyrics'>{{songLyrics[1]}}</view>
+		<view>{{songLyrics[2]}}</view> -->
+	</view>
+
+	<view class='progress-view'>
+		<view class='progress-txt'>
+			<view class='current-time'>{{currentTime}}</view>
+			<view class='duration-time'>{{durationTime}}</view>
+		</view>
+		<view class='progress-total' bindtouchstart='progressTouchStart' bindtouchend='progressTouchEnd' bindtouchmove='progressTouchMove'>
+			<view class='progress'>
+				<view class='progress-bar' style='width: {{percentWidth}}%'><view></view></view>
+			</view>
+		</view>
+		<view class='play-pause-btn'>
+				<image bindtap='playPauseTap' src='{{playPauseBtn}}'></image>
+		</view>
+	</view>
+</view>

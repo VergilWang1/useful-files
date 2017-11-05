@@ -1,0 +1,23 @@
+<view class="container-box">
+	<image src='{{makePlanBg}}' class='container-bg'></image>
+	<view class='container-top'>
+		你还没有定制计划，快速定制戒烟计划，帮助您科学合理戒烟
+	</view>
+	<view class='container-content' style='display: {{hiddenBox1}}'>
+		<image class='content-img-url' src='{{contentImgUrl}}'></image>
+		<view class='container-content-text'>科学戒烟计划——问卷计划</view>
+	</view>
+	<view class='container-content' style='display: {{hiddenBox2}}'>
+		<view class='plan-title'>{{planItem[0].id}} . {{planItem[0].title}}</view>
+		<radio-group bindchange='groupRadio'>
+			<view class='plan-title-item' wx:for="{{items}}" wx:for-item='item'>
+				<radio value='{{item.id}}' />{{item.txt}}
+			</view>
+		</radio-group >
+		<view class='pagenation'><text class='index-page'>{{indexPage}}</text> / {{allPage}}</view>
+	</view>
+	<view class='container-bottom'>
+		<button bindtap='beginMakePlan' style='display: {{hiddenBox1}}' class='begin-make'>开始定制</button>
+		<button bindtap='nextPage' style='display: {{hiddenBox2}}' class='begin-make'>下一页</button>
+	</view>
+</view>

@@ -1,0 +1,64 @@
+<div ng-controller="proData">
+    <div class="wrapper wrapper-content animated fadeInRight" style="margin: 0 -15px">
+        <div class="title-path">
+            <a href="javascript:;" ng-click="backHomePage()">云生物</a> >
+            <a href="">添加项目资料</a>
+        </div>
+        <div style="margin-bottom: 15px"><button class="btn" style="background: #46aad1;color: #fff;" data-toggle="modal" data-target="#uploadProFile">添加项目资料</button></div>
+        <table class="table table-bordered">
+            <tr>
+                <th class="text-center">文件名称</th>
+                <th class="text-center">文字信息</th>
+                <th class="text-center">添加日期</th>
+                <th class="text-center">用户</th>
+                <th class="text-center">下载</th>
+            </tr>
+            <tr class="text-center" ng-repeat="pro in proDataFiles">
+                <td style="line-height: 30px;">
+                    {{pro.name}}
+                </td>
+                <td style="line-height: 30px;">
+                    {{pro.remark}}
+                </td>
+                <td style="line-height: 30px;">
+                    {{pro.date}}
+                </td>
+                <td style="line-height: 30px;">
+                    {{pro.username}}
+                </td>
+                <td style="line-height: 30px;">
+                    <button type="button" ng-show="pro.name" ng-click="downloadPro()" class="btn" style="background: #46aad1;color: #fff;">下载</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal fade" id="uploadProFile">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="pull-right" data-dismiss="modal">x</span>
+                    <div class="modal-title h4">
+                        添加项目资料:
+                    </div>
+                </div>
+                
+                <div class="modal-body clearfix" style="font-size: 16px;">
+                    <div class="col-xs-12 uploadBox">
+                        <span class="">添加文件：</span>
+                        <a href="javascript:;" class="a-upload">
+                            <input type="file" multiple name="upload_files" class="upload_files_input" file="upload_files"  value="">选择文件
+                        </a>
+                        <span class="uploadText">{{uploadFilesText}}</span>
+                    </div>
+                    <div class="col-xs-12" style="margin: 10px 0">
+                        添加文本：
+                        <textarea class="form-control" ng-model="remark" rows="2"></textarea>
+                    </div>
+                    <div class="col-xs-12">
+                        <input type="button" data-dismiss="modal" ng-disabled="!hasFile && !hasRemark" ng-click="TKUploadProConfirm()" class="btn" style="background: #46aad1;color: #fff;" value="确认">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

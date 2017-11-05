@@ -1,0 +1,123 @@
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+         <div ng-controller="yswCreateP" class="col-sm-12">
+            <h2>项目信息</h2>
+            <form class="form form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label for="" class="control-label">
+                            检测指标
+                        </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control"  name="test_index" ng-model="test_index">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label for="" class="control-label">
+                            项目内容
+                        </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control"  name="name" ng-model="name" ><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label for="" class="control-label">
+                            物种
+                        </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control"  name="species" ng-model="species"><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label for="" class="control-label">
+                            样本数量
+                        </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="sample_size" ng-model="sample_size"><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label for="" class="control-label">
+                            样品均质化说明
+                        </label>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="radio-inline">
+                            <div class="col-xs-6">
+                                <input type="radio" ng-value="0" ng-model="homegenization" name="homegenization">是
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="radio" ng-value="1" ng-model="homegenization" name="homegenization">否
+                            </div>
+                            
+                        </div> 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-2">
+                            <input type="button" ng-click="downLoadMB()" value="下载样本模板" class="btn btn-default">
+                    </div>         
+                    <div class="col-xs-2 col-xs-offset-1">
+                        <input type="file" multiple name="upload_files" file="upload_files"  value="导入Excel">  
+                    </div>    
+                    <div class="col-xs-2">
+                        <input type="button" ng-click="uploadEXIL()" class="btn btn-info"  value="导入Excel">  
+                    </div>   
+                </div>
+            <h2>
+                样本信息
+            </h2>
+            <table class="table table-default">
+                <tr>
+                    <th class="text-center">样本编号</th>
+                    <th class="text-center">样本类型</th>
+                    <th class="text-center">保存介质</th>
+                    <th class="text-center">数量</th>
+                    <th class="text-center">分组</th>
+                    <th class="text-center">备注</th>
+                </tr>
+                <tr ng-repeat="info in infos" class="text-center">
+                    <td>{{info.n}}</td>
+                    <td>{{info.type}}</td>
+                    <td>{{info.jiezhi}}</td>
+                    <td>{{info.num}}</td>
+                    <td>{{info.zu}}</td>
+                    <td>{{info.beizhu}}</td>
+                </tr>
+            </table>
+
+            <h2>取样信息</h2>
+            <div class="form-group">
+                    <div class="col-sm-4">
+                        <label for="" class="control-label">
+                            取样地址
+                        </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" ng-model="sampling_address" name="sampling_address">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <label for="" class="control-label">
+                            取样时间
+                        </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" ng-model="sampling_date" name="sampling_date">
+                    </div>
+                </div>
+                <input type="button" ng-click="yswCreateP()" class="btn btn-info col-xs-4 col-xs-offset-4" value="创建项目">
+            </form>
+        </div>
+    </div>
+</div>

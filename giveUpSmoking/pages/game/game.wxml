@@ -1,0 +1,22 @@
+<view class="container-box">
+	<image class='game-line' src='../../images/game/gameLine.png'></image>
+	<view bindtouchstart='dropdownStart' bindtouchend='dropdownEnd' bindtouchmove='dropdownMove' class='dropdown-view' style='top:{{dropdownTop}}'>
+		<image class='combined-shape' src='../../images/game/combinedShape.png'></image>
+		<text class='combined-shape-txt'>下拉切换</text>
+	</view>
+	<image src='{{bgImgUrl}}' class='gameBoxBg'></image>
+	<view class='top-text'>{{topText}}</view>
+	<view class='content' bindtouchmove='contentMove' bindtouchend='contentEnd'>
+		<view wx:for="{{textArr}}" wx:for-item="item" class="content-div {{item.chioce?'shadow':''}}">
+			<view class="{{item.hideBox?'show':'hide'}}" data-txt="{{item.txt}}">
+				<view class='content-txt'>{{item.txt}}</view>
+			</view>
+			<view class="{{item.hideBox?'hide':'show'}}" bindtouchstart='touchedTxt' data-id="{{item.id}}">
+				<view class='content-img'>
+					<image class='item-content-img' src='{{item.contentImgUrl}}'></image>
+					<view>{{item.imgTxt}}</view>
+				</view>
+			</view>
+		</view>  
+	</view>
+</view>

@@ -1,0 +1,86 @@
+#myVideo{
+	width: 750rpx;
+	position: fixed;
+	z-index: 99;
+	top: 10%;
+}
+.top-bg-img{
+	width: 750rpx;
+	height: 360rpx;
+}
+.content-box{
+	padding: 0 15rpx;
+	width: 720rpx;
+}
+.people-training{
+	width: 720rpx;
+}
+.top-box{
+	display: flex;
+	height: 105rpx;
+	flex-direction: row;
+	align-items: center;
+	padding: 0 30rpx;
+	border-bottom: 1rpx solid#ccc;
+}
+.right-img{
+	margin-left: 48rpx;
+}
+.right-img image{
+	width: 66rpx;
+	height: 66rpx;
+	margin-left: -8rpx;
+}
+.content-nav{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 0 30rpx;
+	height: 90rpx;
+	line-height: 90rpx;
+}
+.time-minute{
+	font-weight: bold;
+	height: 85rpx;
+	line-height: 85rpx;
+	padding: 0 30rpx;
+	font-size: 30rpx;
+	border-bottom: 1rpx solid#ccc;
+}
+.active-name{
+	display: flex;
+	flex-direction: column;
+	height: 75rpx;
+	padding: 0 30rpx 10rpx 30rpx;
+}
+.taining-step{
+	padding: 0 30rpx;
+	display: flex;
+	flex-direction: column;
+}
+.one-step{
+	display: flex;
+	align-items: center;
+}
+.one-step image{
+	width: 195rpx;
+	height: 110rpx;
+}
+.one-step view{
+	display: flex;
+	flex-direction: column;
+	padding-left: 20rpx;
+}
+.step-bottom{
+	width: 200rpx;
+	text-align: center;
+	height: 45rpx;
+	line-height: 45rpx;
+}
+.begin-train{
+	position: fixed;
+	bottom: 0;
+	width: 750rpx;
+	border-radius: 0;
+	height: 100rpx;
+}

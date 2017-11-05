@@ -1,0 +1,237 @@
+<div class="wrapper wrapper-content animated fadeInRight" style="margin: 0 -15px;">
+    <div class="title-path">
+        <a href="javascript:;" ng-click="backHomePage()">云生物</a> >
+        <a href="">项目管理</a>
+    </div>
+    <div class="row" ng-controller="proManage">
+        <div class="col-sm-12 manage" >
+            <div class="manage-btn manageBtnBg ys-font-color" data-target="#collapseOne" data-toggle="collapse">
+                项目进展
+                <span class="caret text-info caretStyle"></span>
+            </div>
+            <div id="collapseOne" class="paddingCollapse">
+                <ul class="manage-flow hidden-xs" style="margin-top: 10px">
+                    <li ng-repeat="flow in flowMenu">{{flow.name}}<span class="manageLine" ng-hide="flow.hiddenFlow"></span></li>
+                </ul>
+                <ul class="manage-flow-text">
+                    <li class="line"></li>{{item.bg}}
+                    <li class="stutas" ng-repeat="item in processDetail" ng-style="{{item.color}}"><span class="circle" ng-style="{{item.bg}}"></span>{{item.date}}&nbsp;&nbsp;&nbsp;{{item.content}}</li>
+                </ul>
+                <div class="col-xs-12" ng-if="showProDetails" style="margin: 5px 0 10px 0">
+                    <div class="row">
+                        <a ui-sref="index.proDetailsCon" class="btn" style="background: #46aad1;color: #fff;" ng-click="progressModel()">查看项目流程</a>
+                    </div>
+                </div>
+            </div>
+            <div class="manage-btn manageBtnBg ys-font-color" data-target="#collapseTwo" data-toggle="collapse">
+                项目详情
+                <span class="caret text-info caretStyle"></span>
+            </div>
+            <div class="col-xs-12  sample-info">
+                <div id="collapseTwo" class="collapseTwo collapse">
+                    <div class="manage-btn-flow flowBtn">
+                        项目信息
+                    </div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-2">
+                                <label for="" class="control-label">创建日期:</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" disabled ng-model="create_date" name="date" class="form-control">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="" class="control-label">项目编号:</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" disabled ng-model="simleInfos.identifier" name="proNum" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2">
+                                <label for="" class="control-label">样本数量:</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" disabled ng-model="simleInfos.sample_size" name="date" class="form-control">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="" class="control-label">物种:</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" disabled ng-model="simleInfos.species" name="proNum" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2">
+                                <label for="" class="control-label">项目内容:</label>
+                            </div>
+                            <div class="col-sm-10">
+                                <input type="text" disabled ng-model="simleInfos.content" name="proContent" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2">
+                                <label for="" class="control-label">检测指标:</label>
+                            </div>
+                            <div class="col-sm-10">
+                                <textarea disabled ng-model="simleInfos.test_index" name="proContent" class="form-control" rows="5"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="flowBtn">
+                            样本信息
+                        </div>
+                        <table class="table table-bordered">
+                            <tr class="bg-info">
+                                <th class="text-center">序号</th>
+                                <th class="text-center">样本编号</th>
+                                <th class="text-center">样本类型</th>
+                                <th class="text-center">保存介质</th>
+                                <th class="text-center">数量</th>
+                                <th class="text-center">分组</th>
+                                <th class="text-center">备注</th>
+                            </tr>
+                            <tr ng-repeat="info in tableInfos" class="text-center">
+                                <td>{{$index + 1}}</td>
+                                <td>{{info.identifier}}</td>
+                                <td>{{info.genre}}</td>
+                                <td>{{info.storage_medium}}</td>
+                                <td>{{info.number}}</td>
+                                <td>{{info.grouping}}</td>
+                                <td>{{info.remark}}</td>
+                            </tr>
+                        </table>
+                        <div class="flowBtn">
+                            取样信息
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2">
+                                <label for="" class="control-label">取样地址:</label>
+                            </div>
+                            <div class="col-sm-5">
+                                <input type="text" disabled ng-model="simleInfos.sampling_address" name="sampling_address" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2">
+                                <label for="" class="label-control">
+                                    取样时间:
+                                </label>
+                            </div>
+                            <div class="col-sm-5">
+                                <input type="text" disabled id="dataInput" date-inp  placeholder="点击选择日期" ng-model="take_sample_date" name="take_sample_date" class="demo-input twoDaysInp form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <input type="button" ng-if="isMana" ng-disabled="!simleInfos.sampling_address || !simleInfos.customer_id || !simleInfos.shipment_enterprise_id || !simleInfos.service_provider_id" ng-click="downloadPro()" class="btn" style="background: #46aad1;color: #fff;" value="下载项目">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div ng-if="isMana">
+                <div class="manage-btn manageBtnBg ys-font-color" data-target="#collapseThree" data-toggle="collapse">
+                    相关人员信息
+                    <span class="caret text-info caretStyle"></span>
+                </div>
+                <div class="col-xs-12 collapse" id="collapseThree" style="margin-top: 10px;">
+                    <div class="col-sm-4 col-xs-12 allProlist-box">
+                        <div class="allProlist-content" style="border: 0;background: #fff">
+                            <ul class="allProLisr-right proManUserInfo" style="font-size: 15px;">
+                                <li class="ys-font-color font-bold-16px">客户</li>
+                                <li></li>
+                                <li>
+                                    姓<span style="display: inline-block;width: 31px;"></span>名：<span>{{simleInfos.customer.name}}</span>
+                                </li>
+                                <li>
+                                    手机号码：<span>{{simleInfos.customer.username}}</span>
+                                </li>
+                                <li>
+                                    邮<span style="display: inline-block;width: 31px;"></span>箱：<span>{{simleInfos.customer.email}}</span>
+                                </li>
+                                <li>
+                                    公<span style="display: inline-block;width: 31px;"></span>司：<span>{{simleInfos.customer.company}}</span>
+                                </li>
+                                <li>
+                                    详细地址：<span>{{simleInfos.customer.addr}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12 allProlist-box">
+                        <div class="allProlist-content" style="border: 0;background: #fff">
+                            <ul class="allProLisr-right" style="font-size: 15px;">
+                                <li class="ys-font-color font-bold-16px">物流商</li>
+                                <li>
+                                    姓<span style="display: inline-block;width: 31px;"></span>名：<span>{{simleInfos.shipment_enterprise.name}}</span>
+                                </li>
+                                <li>
+                                    手机号码：<span>{{simleInfos.shipment_enterprise.username}}</span>
+                                </li>
+                                <li>
+                                    邮<span style="display: inline-block;width: 31px;"></span>箱：<span>{{simleInfos.shipment_enterprise.email}}</span>
+                                </li>
+                                <li>
+                                    公<span style="display: inline-block;width: 31px;"></span>司：<span>{{simleInfos.shipment_enterprise.company}}</span>
+                                </li>
+                                <li>
+                                    详细地址：<span>{{simleInfos.shipment_enterprise.addr}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12 allProlist-box">
+                        <div class="allProlist-content" style="border: 0;background: #fff">
+                            <ul class="allProLisr-right" style="font-size: 15px;">
+                                <li class="ys-font-color font-bold-16px">服务商</li>
+                                <li>
+                                    姓<span style="display: inline-block;width: 31px;"></span>名：<span>{{simleInfos.service_provider.name}}</span>
+                                </li>
+                                <li>
+                                    手机号码：<span>{{simleInfos.service_provider.username}}</span>
+                                </li>
+                                <li>
+                                    邮<span style="display: inline-block;width: 31px;"></span>箱：<span>{{simleInfos.service_provider.email}}</span>
+                                </li>
+                                <li>
+                                    公<span style="display: inline-block;width: 31px;"></span>司：<span>{{simleInfos.service_provider.company}}</span>
+                                </li>
+                                <li>
+                                    详细地址：<span>{{simleInfos.service_provider.addr}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="manage-btn manageBtnBg ys-font-color" data-target="#collapseFour" data-toggle="collapse">
+                评价信息
+                <span class="caret text-info caretStyle"></span>
+            </div>
+            <div id="collapseFour" class="collapse" style="padding: 0 20px">
+                <div class="col-sm-5 col-xs-12 collapseFourPJ">
+                    <div class="row">
+                        <h4>服务评价:</h4>
+                    </div>
+                    <ul class="col-xs-12">
+                        <li><span>星级：</span><span ng-repeat="star in logisticsStar"><i class="glyphicon glyphicon-star" style="color:#ffda00"></i></span></li>
+                        <li><span>最满意服务：</span><span>{{shipmentEnterprise.time_limit?"时效   ":""}}</span><span>{{shipmentEnterprise.Professional?"专业   ":""}}</span><span>{{shipmentEnterprise.attitude?"态度   ":""}}</span></li>
+                        <li><span>评价内容：</span><span>{{shipmentEnterprise.comment}}</span></li>
+                    </ul>
+                </div>
+                <div class="col-sm-1"> </div>
+                <div class="col-sm-5 col-xs-12 collapseFourPJ">
+                    <div class="row">
+                        <h4>物流评价:</h4>
+                    </div>
+                    <ul class="col-xs-12">
+                        <li><span>星级：</span><span ng-repeat="star in serviceStars"><i class="glyphicon glyphicon-star" style="color:#ffda00"></i></span></li>
+                        <li><span>最满意服务：</span><span>{{serviceProvider.time_limit?"时效   ":""}}</span><span>{{serviceProvider.Professional?"专业   ":""}}</span><span>{{serviceProvider.attitude?"态度   ":""}}</span></li>
+                        <li><span>评价内容：</span><span>{{serviceProvider.comment}}</span></li>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

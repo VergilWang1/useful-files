@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="{% static 'service_provider/' %}js/angular.min.js"></script>
+</head>
+<body ng-controller="con">
+    <h3>创建流程步骤模板</h3>
+    <form>
+        流程模板id <input type="text" name="process_id" ng-model="process_id" ng-init="process_id='1'"><br>
+        <p>----我是奇怪的分割线----</p>
+        步骤名 <input type="text" name="name" ng-model="name" ng-init="name='质检'"><br>
+        <!--开始日期 <input type="text" name="start_date" ng-model="start_date" ng-init="start_date=''"><br>-->
+        <!--开始时间 <input type="text" name="start_time" ng-model="start_time" ng-init="start_time=''"><br>-->
+        周期 <input type="text" name="cycle" ng-model="cycle" ng-init="cycle='5'"><br>
+        备注 <input type="text" name="remark" ng-model="remark" ng-init="remark='我是备注'"><br>
+        发送短信 <input type="checkbox" name="send_message" ng-model="send_message" ng-init="send_message=false"><br>
+        短信内容 <input type="text" name="message_content" ng-model="message_content" ng-init="message_content='我是短信内容'"><br>
+        发送邮件 <input type="checkbox" name="send_email" ng-model="send_email" ng-init="send_email=false"><br>
+        邮件内容 <input type="text" name="email_content" ng-model="email_content" ng-init="email_content='我是邮件内容'"><br>
+        云生物 <input type="checkbox" name="yunbio" ng-model="yunbio" ng-init="yunbio=false"><br>
+        客户 <input type="checkbox" name="customer" ng-model="customer" ng-init="customer=false"><br>
+        服务商 <input type="checkbox" name="service_provider" ng-model="service_provider" ng-init="service_provider=false"><br>
+        物流商 <input type="checkbox" name="shipment_enterprise" ng-model="shipment_enterprise" ng-init="shipment_enterprise=false"><br>
+        <input type="button" ng-click="sub()" value="保存">
+    </form>
+</body>
+<script type="text/javascript">
+    angular.module("app",[])
+        .controller("con",function($scope,$http){
+            $scope.sub = function(){
+                tmp = []
+                t = {
+                    'name': $scope.name,
+                    'cycle': $scope.cycle,
+                    'remark': $scope.remark,
+                    'send_message': $scope.send_message,
+                    'message_content': $scope.message_content,
+                    'send_email': $scope.send_email,
+                    'email_content': $scope.email_content,
+                    'yunbio': $scope.yunbio,
+                    'customer': $scope.customer,
+                    'service_provider': $scope.service_provider,
+                    'shipment_enterprise': $scope.shipment_enterprise,
+                }
+                tmp.push(t)
+                tmp = JSON.stringify(tmp)
+                target = {
+                    'save': tmp,
+                }
+                tmp_url = (
+                    "http://127.0.0.1:8000/service_provider/two_params/"
+                    + $scope.process_id +
+                    "/create_new_process_step_model"
+                )
+                $http({
+                    headers : {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    method: "POST",
+                    url: tmp_url,
+                    data : target,
+                    transformRequest: function (data, headersGetter) {
+                        var formData = new FormData();
+                        angular.forEach(data, function (value, key) {
+                            formData.append(key, value);
+                        });
+
+                        var headers = headersGetter();
+                        delete headers['Content-Type'];
+
+                        return formData;
+                    },
+                }).then(function(response){
+                    console.log(response);
+                },function(response){
+                    console.log(response);
+                });
+            }
+        })
+</script>
+</html>

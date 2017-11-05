@@ -1,0 +1,164 @@
+ <div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="title-path">
+            <a href="javascript:;" ng-click="backHomePage()">云生物</a> >
+            <a href="">项目信息管理</a>
+        </div>
+         <div ng-controller="createSimple" class="col-xs-12">
+            <div class="h4">
+                <div class="row">
+                    <div class="manageBtnBg manage-btn ys-font-color">
+                        项目信息
+                    </div>
+                </div>
+            </div>
+            <form class="form form-horizontal clearfix" style="margin-bottom: 20px">
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <label for="" class="control-label">
+                            项目内容
+                        </label>
+                    </div>
+                    <div class="col-sm-9">
+                        <select ng-model="content" ng-options="c.name for c in selectedProgress" class="form-control">
+                            <option value="" ng-hide="hideSeleced">{{content}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <label for="" class="control-label">
+                            检测指标
+                        </label>
+                    </div>
+                    <div class="col-sm-9">
+                        <textarea class="form-control"  name="test_index" ng-model="simleInfos.test_index" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <label for="" class="control-label">
+                            物种
+                        </label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control"  name="species" ng-model="simleInfos.species"><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <label for="" class="control-label">
+                            样本数量
+                        </label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="sample_size" ng-model="simleInfos.sample_size"><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <label for="" class="control-label">
+                            样品均质化说明
+                        </label>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="checkbox-inline">
+                                    <input type="checkbox" ng-model="homegenization" name="homegenization">（说明：是否任取一部分代表整个组织）
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group clearfix">
+                    <div class="col-xs-12">
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <input type="button" ng-hide="haxProInfo" value="保存项目信息" class="btn" style="background: #46aad1;color: #fff" ng-click="saveSimple()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="haxProInfo">
+                    <div class="h4">
+                        <div class="row">
+                            <div class="manageBtnBg manage-btn ys-font-color">
+                                样本信息
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 uploadBox" ng-hide="haxSimpleInfo">
+                            <input type="button" ng-click="downLoadMB()"  value="下载样本模板" class="btn" style="background: #46aad1;color: #fff">
+                            <a href="javascript:;" class="a-upload" style="top: 6px;left: 180px">
+                                <input type="file" multiple name="upload_files" class="upload_files_input" file="upload_files"  value="">选择文件
+                            </a>
+                            <span class="uploadText" style="margin-left: 156px">{{uploadFilesText}}</span>
+                        </div> 
+                    </div>
+                </div>
+                <table class="table table-border col-xs-12" ng-show="haxProInfo">
+                    <tr class="bg-info">
+                        <th class="text-center">序号</th>
+                        <th class="text-center">样本编号</th>
+                        <th class="text-center">样本类型</th>
+                        <th class="text-center">保存介质</th>
+                        <th class="text-center">数量</th>
+                        <th class="text-center">分组</th>
+                        <th class="text-center">备注</th>
+                    </tr>
+                    <tr ng-repeat="info in tableInfos" class="text-center">
+                        <td>{{$index + 1}}</td>
+                        <td>{{info.identifier}}</td>
+                        <td>{{info.genre}}</td>
+                        <td>{{info.storage_medium}}</td>
+                        <td>{{info.number}}</td>
+                        <td>{{info.grouping}}</td>
+                        <td>{{info.remark}}</td>
+                    </tr>
+                </table>
+                <div ng-show="haxSimpleInfo">
+                    <div class="h4">
+                        <div class="row">
+                            <div class="manageBtnBg manage-btn ys-font-color">
+                                取样信息
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            <label for="" class="control-label">
+                                取样地址
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" ng-model="simleInfos.sampling_address" placeholder="{{simleInfos.customer.addr}}" name="sampling_address">
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="checkbox" ng-model="defaultAddr">
+                            选择默认地址
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            <label for="" class="control-label">
+                                取样时间
+                            </label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="text" id="dataInputProMan" date-inp  placeholder="点击选择日期" class="form-control demo-input" ng-model="take_sample_date" name="take_sample_date">
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-sm-3 col-sm-offset-4">
+                            <div class="row">
+                                <input type="button" class="btn pull-right" style="background: #46aad1;color: #fff" ng-click="simlleAddrAndDate()" value="保存项目信息" ng-hide="hasSimpleDate" ng-hide="haxSimpleInfo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

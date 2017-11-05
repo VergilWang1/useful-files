@@ -1,0 +1,80 @@
+.game-line{
+	position: absolute;
+	width: 4rpx;
+	height: 115rpx;
+	right: 50rpx;
+	top: 0;
+}
+.dropdown-view{
+	position: absolute;
+	width: 32rpx;
+	height: 92rpx;
+	top: 77rpx;
+	right: 36rpx;
+}
+.combined-shape{
+	position: absolute;
+	width: 32rpx;
+	height: 92rpx;
+}
+.combined-shape-txt{
+	position: absolute;
+	font-size: 17rpx;
+	width: 30rpx;
+	color: #fff;
+	top: 5rpx;
+	left: 7rpx;
+}
+.gameBoxBg{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: -1;
+}
+.top-text{
+	text-align: center;
+	height: 125rpx;
+	line-height: 125rpx;
+	font-size: 30rpx;
+	color: #fff;
+}
+.content{
+	overflow: hidden;
+	padding-left: 18rpx;
+}
+.content-div{
+	color: #fff;
+	float: left;
+	width: 220rpx;
+	height: 220rpx;
+	margin: 0 0 15rpx 15rpx;
+	background: rgba(255,255,255,0.4);
+}
+.content-txt{
+	color: #fff;
+	font-size: 50rpx;
+	line-height: 100rpx;
+	margin: 60rpx auto;
+	width: 100rpx;
+	height: 100rpx;
+	text-align: center;
+}
+.content-img{
+	background: #fff;
+	color: #000;
+	height: 220rpx;
+}
+.item-content-img{
+	width: 112rpx;
+	height: 112rpx;
+	margin: 28rpx 0 28rpx 54rpx;
+}
+.content-img view{
+	text-align: center;
+	line-height: 48rpx;
+}
+.shadow{
+	box-shadow: 10rpx 10rpx 20rpx #000;
+	background: rgba(0,0,0,0.5);
+	transition: all 0.5s;
+}

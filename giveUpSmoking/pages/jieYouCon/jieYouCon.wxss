@@ -1,0 +1,42 @@
+.top-num{
+	text-align: center;
+	color: #b4b8b7;
+	height: 180rpx;
+	line-height: 180rpx;
+}
+.index-page{
+	color: #14b0ae;
+	font-size: 30rpx;
+}
+.img-box{
+	height: 590rpx;
+	position: relative;
+}
+.img-box image{
+	position: absolute;
+}
+.first-img{
+	top: 0;
+	left: 140rpx;
+	width: 470rpx;
+	height: 470rpx;
+}
+.second-img{
+	top: 24rpx;
+	left: 122rpx;
+	width: 505rpx;
+	height: 505rpx;
+}
+.third-img{
+	top: 48rpx;
+	left: 105rpx;
+	width: 540rpx;
+	height: 540rpx;
+}
+.out-active{
+	width: 270rpx;
+	height: 75rpx;
+	line-height: 75rpx;
+	margin: 55rpx 0 0 240rpx;
+	border-radius: 40rpx;
+}

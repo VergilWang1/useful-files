@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="{% static 'service_provider/' %}js/angular.min.js"></script>
+    <!--<script type="text/javascript" src="../angular.min.js.map"></script>    -->
+</head>
+<body ng-controller="con">
+    <h3>项目信息</h3>
+    <form>
+        流程id <input type="text" name="id" ng-model="id" ng-init="id='1'"><br>
+        <input type="button" ng-click="sub()" value="保存">
+    </form>
+</body>
+<script type="text/javascript">
+    angular.module("app",[])
+        .controller("con",function($scope,$http){
+            $scope.sub = function(){
+                tmp = []
+                tmp_id = $scope.id
+                t = {
+                    'id': tmp_id,
+                }
+                tmp.push(t)
+                json_data = JSON.stringify(tmp)
+                source = {
+                    'save': json_data,
+                }
+                $http({
+                    method: 'POST',
+                    url: 'http://127.0.0.1:8000/service_provider/two_params/1/select_process',
+                    headers : {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    data : source,
+                    // transformRequest: function (data, headersGetter) {
+                    //     var formData = new FormData();
+                    //     angular.forEach(data, function (value, key) {
+                    //         formData.append(key, value);
+                    //     });
+
+                    //     var headers = headersGetter();
+                    //     delete headers['Content-Type'];
+
+                    //     return formData;
+                    // },
+                })
+                .success(function (data) {
+                    $scope.formStatus = true;
+                })
+                .error(function (data, status) {
+                    console.log('form submit fail...');
+                });
+            }
+        })
+</script>
+</html>

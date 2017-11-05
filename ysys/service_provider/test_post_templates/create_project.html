@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="angular.min.js"></script>
+</head>
+<body ng-controller="con">
+    <h3>项目信息</h3>
+    <form>
+        检测指标 <input type="text" name="test_index" ng-model="test_index"><br>
+        项目内容 <input type="text" name="name" ng-model="name"><br>
+        物种 <input type="text" name="species" ng-model="species"><br>
+        样本数量 <input type="text" name="sample_size" ng-model="sample_size"><br>
+        <!--文件 <input type="file" name="">-->
+        样品均质化说明 <input type="radio" name="homegenization" ng-model="homegenization">是   <input type="radio">否（说明：是否任取一部分代表整个组织）<br>
+        <input type="button" ng-click="sub()" value="保存">
+    </form>
+</body>
+<script type="text/javascript">
+    angular.module("app",[])
+        .controller("con",function($scope,$http){
+            $scope.sub = function(){
+                $http({
+                    method: "POST",
+                    url: "test.php",
+                    data : JSON_stringify([
+                        {
+                            test_index: $scope.test_index,
+                            name: $scope.name,
+                            species: $scope.species,
+                            sample_size: $scope.sample_size,
+                            homegenization: $scope.homegenization
+                        },
+                        {
+                            test_index: $scope.test_index,
+                            name: $scope.name,
+                            species: $scope.species,
+                            sample_size: $scope.sample_size,
+                            homegenization: $scope.homegenization
+                        }
+                    ])
+                }).then(function(response){
+                    console.log(response);
+                },function(response){
+                    console.log(response);
+                });
+            }
+        })
+</script>
+</html>

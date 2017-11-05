@@ -1,0 +1,153 @@
+<div class="wrapper wrapper-content animated fadeInRight" style="margin: 0 -15px;">
+    <div class="row">
+        <div class="title-path">
+            <a href="">云生物</a> >
+            <a href="">项目管理</a>
+        </div>
+        <div class="col-sm-12 manage" ng-controller="svProMan">
+            <div class="manage-btn">
+                <input type="button" data-toggle="modal" data-target="#svProMan1" class="btn btn-info" value="项目进展">
+            </div>
+            <ul class="manage-flow">
+                <li>项目创建</li>
+                <li>取样等待</li>
+                <li>运输中</li>
+                <li>质检</li>
+                <li>预实验</li>
+                <li>正式实验</li>
+                <li>项目完成</li>
+            </ul>
+            <div class="manage-flow-text">
+                2017.03.21  11:20   项目已创建
+            </div>
+            <div class="manage-btn">
+                <input type="button" class="btn btn-info" value="项目详情">
+            </div>
+            <div class="col-xs-12  sample-info">
+                <h3>项目信息</h3>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-xs-2">
+                            <label for="" class="control-label">创建日期:</label>
+                        </div>
+                        <div class="col-xs-2">
+                            <input type="text" ng-model="create_date" name="create_date" class="form-control">
+                        </div>
+                        <div class="col-xs-2">
+                            <label for="" class="control-label">项目编号:</label>
+                        </div>
+                        <div class="col-xs-2">
+                            <input type="text" ng-model="proNum" name="proNum" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-2">
+                            <label for="" class="control-label">样本数量:</label>
+                        </div>
+                        <div class="col-xs-2">
+                            <input type="text" ng-model="sample_size" class="form-control">
+                        </div>
+                        <div class="col-xs-2">
+                            <label for="" class="control-label">物种:</label>
+                        </div>
+                        <div class="col-xs-2">
+                            <input type="text" ng-model="species" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-2">
+                            <label for="" class="control-label">项目内容:</label>
+                        </div>
+                        <div class="col-xs-6">
+                            <input type="text" ng-model="name" class="form-control">
+                        </div>
+                    </div>
+                    <h3>样本信息</h3>
+                    <div class="form-group">
+                        <div class="col-xs-2">
+                                <input type="button" ng-click="downLoadMB()" value="下载样本模板" class="btn btn-default">
+                        </div>         
+                        <div class="col-xs-2 col-xs-offset-1">
+                            <input type="file" multiple name="upload_files" file="upload_files"  value="导入Excel">  
+                        </div>    
+                        <div class="col-xs-2">
+                            <input type="button" ng-click="uploadEXIL()" class="btn btn-info"  value="导入Excel">  
+                        </div>    
+                    </div>
+                    <table class="table" style="background: white; margin: 0 -15px;">
+                        <tr>
+                            <th class="text-center">样本编号</th>
+                            <th class="text-center">样本类型</th>
+                            <th class="text-center">保存介质</th>
+                            <th class="text-center">数量</th>
+                            <th class="text-center">分组</th>
+                            <th class="text-center">备注</th>
+                        </tr>
+                        <tr ng-repeat="info in sampleInfos">
+                            <td>{{info.identifier}}</td>
+                            <td>{{info.genre}}</td>
+                            <td>{{info.storage_medium}}</td>
+                            <td>{{info.number}}</td>
+                            <td>{{info.grouping}}</td>
+                            <td>{{info.remark}}</td>
+                        </tr>
+                    </table>
+                    <h3>取样信息</h3>
+                    <div class="form-group">
+                        <div class="col-xs-2">
+                            <label for="" class="control-label">取样地址:</label>
+                        </div>
+                        <div class="col-xs-5">
+                            <input type="text" ng-model="sampling_address" class="form-control">
+                        </div>
+                        <div class="col-xs-1">
+                            <input type="radio">
+                        </div>
+                        <div class="col-xs-3">
+                            <label for="" class="control-label">
+                                采用默认地址
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-2">
+                            <label for="" class="label-control">
+                                取样时间:
+                            </label>
+                        </div>
+                        <div class="col-xs-5">
+                            <input type="text" ng-model="sampling_date" class="form-control">
+                        </div>
+                        <div class="col-xs-3">
+                            <input type="button" ng-click="sub()" class="btn btn-success pull-right" value="保存">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="manage-btn">
+                <input type="button" class="btn btn-info" value="评价信息" data-toggle="modal" data-target="#svProMan3">
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h3>物流评价:</h3>
+                <ul class="col-xs-12" style="border: 1px solid">
+                    <li>星级：<span>☆</span></li>
+                    <li>最满意服务: <span>时效 专业</span></li>
+                    <li>评价内容: <span>我是评价内容</span></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h3>服务评价:</h3>
+                <ul class="col-xs-12" style="border: 1px solid">
+                    <li>星级：<span>☆</span></li>
+                    <li>最满意服务: <span>时效 专业</span></li>
+                    <li>评价内容: <span>我是评价内容</span></li>
+                </ul>
+            </div>
+            <div class="col-xs-2">文章: </div>
+            <ul class="col-xs-10">
+                <li><span>http://baike.so.com/doc/7708599-7982694.html</span></li>
+                <li>我是文档标题</li>
+            </ul>
+        </div>
+    </div>
+</div>

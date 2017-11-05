@@ -1,0 +1,15 @@
+<view class='container-box'>
+	<image src='{{containerBg}}' class='container-bg'></image>
+	<view class='top-num'>
+		<text class='index-page'>{{indexPage}}</text>
+		<text>\ {{allPages}}</text>
+	</view>
+	<view class='img-box'>
+		<image class='first-img' src='{{contentImg}}'></image>
+		<image class='second-img' src='{{contentImg}}'></image>
+		<image class='third-img' bindtap='toAudio' src='{{contentImg}}'></image>
+	</view>
+	<view>
+	<button bindtap='setOutActive' class='out-active'>发起活动</button>
+	</view>
+</view>

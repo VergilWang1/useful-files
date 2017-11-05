@@ -1,0 +1,35 @@
+{
+  "pages": [
+		"pages/index/index",
+		"pages/makePlan/makePlan",
+		"pages/mine/mine",
+		"pages/knowledge/knowledge",
+		"pages/plan/plan",
+		"pages/game/game",
+    "pages/login/login",
+    "pages/logs/logs",
+    "pages/jieYou/jieYou",
+		"pages/jieYouCon/jieYouCon",
+		"pages/audio/audio",
+		"pages/video/video",
+    "pages/register/register"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#282828",
+    "navigationBarTitleText": "微信小程序",
+    "navigationBarTextStyle": "#000"
+  },
+	"tabBar": {
+		"list": [{
+			"pagePath": "pages/index/index",
+			"text": "首页"
+		},{
+			"pagePath": "pages/jieYou/jieYou",
+			"text": "解忧圈"
+		},{
+			"pagePath": "pages/mine/mine",
+			"text": "我的"
+		}]
+	}
+}

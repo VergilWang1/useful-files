@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="../angular.min.js"></script>
+</head>
+<body ng-controller="con">
+    <h3>项目信息</h3>
+    <form>
+        子流程名称 <input type="text" name="name" ng-model="name" ng-init="name='测试子流程'"><br>
+        子流程负责人 <input type="text" name="responsible" ng-model="responsible" ng-init="responsible='某人'"><br>
+        开始状态 <input type="text" name="start_state" ng-model="start_state" ng-init="start_state='测试开始状态'"><br>
+        结束状态 <input type="text" name="stop_state" ng-model="stop_state" ng-init="stop_state='测试结束状态'"><br>
+        更新状态 <input type="text" name="update_state" ng-model="update_state" ng-init="update_state='测试更新状态'"><br>
+        预计周期 <input type="text" name="cycle" ng-model="cycle" ng-init="cycle='2'"><br>
+        手机/电话 <input type="text" name="phone" ng-model="phone" ng-init="phone='110'"><br>
+        电子邮件 <input type="text" name="email" ng-model="email" ng-init="email='360@qq'"><br>
+        
+        <input type="button" ng-click="sub()" value="保存">
+    </form>
+</body>
+<script type="text/javascript">
+    angular.module("app",[])
+        .controller("con",function($scope,$http){
+            $scope.sub = function(){
+                tmp = []
+                t = {
+                    name: $scope.name,
+                    responsible: $scope.responsible,
+                    start_state: $scope.start_state,
+                    stop_state: $scope.stop_state,
+                    update_state: $scope.update_state,
+                    cycle: $scope.cycle,
+                    phone: $scope.phone,
+                    email: $scope.email,
+                }
+                tmp.push(t)
+                target = {
+                    'save': tmp,
+                }
+                datas = JSON.stringify(target)
+                $http({
+                    headers : {
+                        'content-type': 'application/json'
+                    },
+                    method: "POST",
+                    url: "http://127.0.0.1:8000/service_provider/two_params/1/create_child_process",
+                    data : datas
+                }).then(function(response){
+                    console.log(response);
+                },function(response){
+                    console.log(response);
+                });
+            }
+        })
+</script>
+</html>

@@ -1,0 +1,57 @@
+<div ng-controller="wuliuHome">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <form class="form-inline pull-right" style="padding: 20px">
+            <div class="form-group clearfix">
+                <div class="col-sm-12 col-xs-12 clearfix" style="margin-top: 10px;">
+                    <div class="row">
+                        <div class="input-group pull-right">
+                            <input type="text" ng-model="searchPro" class="form-control">
+                            <span class="input-group-addon" placeholder="搜索" ng-click="searchProBtn()">
+                                <img class="search-img" src="../../static/ysys/images/search.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="col-xs-12 allProlist">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12 allProlist-box" ng-repeat="pro in proList">
+                    <div class="allProlist-content" pro-list-hover>
+                        <a ng-click="saveProIDDetail()" ui-sref="index.proManage" class="allProlist-link" style="height: 156px; border-radius: 10px;">点击查看项目详情</a>
+                        <div class="allProList-left">
+
+                        </div>
+                        <ul class="allProLisr-right clearfix">
+                            <li class="createDate">
+                                <span class="pull-left">{{pro.create_date}}</span>
+                                <div class="text-right text-muted hiddenEllipsis ys-font-color">{{pro.label}}</div>
+                            </li>
+                            <li class="hiddenID">
+                                隐藏ID：<span>{{pro.id}}</span>
+                            </li>
+                            <li class="proNum">
+                                项目编号：<span>{{pro.identifier}}</span>
+                            </li>
+                            <li class="hiddenEllipsis">
+                                项目内容：{{pro.content}}
+                            </li>
+                            <li>
+                                样本数量：{{pro.sample_size}}
+                            </li>
+                            <li>
+                                <span class="pull-left">项目进度：</span>
+                                <div class="progress" style="margin-left: 90px; margin-right: 30px;">
+                                    <div class="progress-bar" style="background: #46aad1"  ng-style="pro.progress">{{pro.progress.width}}</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--分页-->
+        <div ng-include="'../../static/ysys/views/common/pagination.html'"></div>
+    </div>
+</div>

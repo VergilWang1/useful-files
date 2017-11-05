@@ -1,0 +1,16 @@
+<view>
+	<view class='headerBox'>
+		<image class='headImg' src='../../images/login/headImg.png'></image>
+		<image class='headBgImg' src='../../images/login/headBgImg.png'></image>
+		<view class='headeText'>戒烟小程序</view>
+	</view>
+	<view class='contentBox'>
+			<view><input placeholder='请输入手机号码'/></view>
+			<view><input placeholder='请输入密码'/></view>
+			<view><input placeholder='请再次输入密码'/></view>
+			<view class='zhuce'>
+				<button class='registerBtn'>注册</button>
+			</view>
+			<view class='loginBtn' style='color: {{color}}'  bindtap='toLogin'>登陆</view>
+	</view>
+</view>

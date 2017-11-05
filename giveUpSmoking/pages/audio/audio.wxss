@@ -1,0 +1,104 @@
+.title{
+	text-align: center;
+	font-size: 33rpx;
+	height: 70rpx;
+	line-height: 70rpx;
+	margin-top: 35rpx;
+	color: #fff;
+}
+.rot{
+	animation: Rot 2s infinite linear;
+}
+@keyframes Rot{
+	from{
+		transform: rotate(0)
+	}to{
+		transform: rotate(360deg)
+	}
+}
+.song-name{
+	text-align: center;
+	font-size: 38rpx;
+	height: 150rpx;
+	line-height: 150rpx;
+	color: #fff;
+}
+.song-lyrics{
+	text-align: center;
+	padding-top: 100rpx;
+	color: #fff;
+}
+/* .song-lyrics view{
+	line-height: 60rpx;
+	color: #fff;
+} */
+.now-lyrics{
+	color: #53e0d2;
+}
+.song-img{
+	position: relative;
+	height: 330rpx;
+}
+.song-img image{
+	position: absolute;
+}
+.play-img{
+	width: 322rpx;
+	height: 326rpx;
+  left: 210rpx;
+}
+.play-img-little{
+	width: 235rpx;
+	height: 235rpx;
+	border-radius: 50%;
+	top: 47rpx;
+	left: 255rpx;
+}
+.progress-view{
+	position: absolute;
+	left: 30rpx;
+	top: 940rpx;
+	width: 690rpx;
+}
+.progress-txt{
+	overflow: hidden;
+}
+.current-time{
+	float: left;
+	color: #fff;
+}
+.duration-time{
+	float: right;
+	color: #fff;
+}
+.play-pause-btn{
+	text-align: center;
+	margin-top: 20rpx;
+}
+.play-pause-btn image{
+	width: 68rpx;
+	height: 61rpx;
+}
+.progress-total{
+	width: 690rpx;
+	height: 40rpx;
+}
+.progress{
+	width: 685rpx;
+	background: #fff;
+	height: 10rpx;
+	position: relative;
+}
+.progress-bar{
+	background:  #53e0d2;
+	position: absolute;
+	height: 10rpx;
+}
+.progress-bar view{
+	position: absolute;
+	top: -5rpx;
+	right: 0;
+	height: 20rpx;
+	width: 10rpx;
+	background: #53e0d2;
+}

@@ -1,0 +1,112 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="title-path">
+            <a ui-sref="index.yunSWHome">云生物</a> >
+            <a href="">创建项目流程</a>
+        </div>
+        <div class="col-xs-12" ng-controller="svCreatePro">
+            <form class="form-horizontal col-sm-9 col-xs-12">
+                <div class="form-group">
+                    <div class="col-xs-3">
+                        <label for="" class="control-label">项目内容:</label>
+                    </div>
+                    <div class="col-xs-9">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <textarea name="" id="" cols="50" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <input type="button" class="btn btn-info" value="添加项目内容">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-3">
+                        <label for="" class="control-label">项目流程:</label>
+                    </div>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-3">
+                        <label for="" class="control-label">项目负责人:</label>
+                    </div>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-3">
+                        <label for="" class="control-label">联系方式:</label>
+                    </div>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-3">
+                        <label for="" class="control-label">电子邮件:</label>
+                    </div>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <div class="col-xs-3">
+                        <label for="" class="control-label">选择服务商:</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <select name="" id="">
+                            <option value="">服务商1</option>
+                            <option value="">服务商2</option>
+                            <option value="">服务商3</option>
+                            <option value="">服务商4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <input type="button" class="btn btn-success" value="创建项目流程">
+                    </div>
+                </div>
+            </form>
+
+            <div class="col-xs-12 allProlist">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12 allProlist-box"  ng-repeat="pro in svProList">
+                        <div class="allProlist-content" pro-list-hover>
+                            <a ui-sref="index.yswSubPro" class="allProlist-link" >点击添加项目子流程</a>
+                            <div class="allProList-left">
+
+                            </div>
+                            <ul class="allProLisr-right">
+                                <li>
+                                    xxx流程
+                                </li>
+                                <li>
+                                    项目内容：{{pro.content}}
+                                </li>
+                                <li>
+                                    项目负责人：{{pro.chargeP}}
+                                </li>
+                                <li>
+                                    联系方式：{{pro.tel}}
+                                </li>
+                                <li>
+                                    电子邮件：{{pro.email}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="wrapper wrapper-content animated fadeInRight" style="margin: 0 -15px">
+    <div class="title-path">
+        <a href="javascript:;" ng-click="backHomePage()">云生物</a> >
+        <a ui-sref="index.demo1LC">项目流程</a> >
+        <a href="">创建流程</a>
+    </div>
+    <div ng-controller="demo1Create">
+        <form style="padding-top: 20px;" name="formCycle">
+            <div class="form-group">
+                <label for="">
+                    <input type="text" ng-model="proDetail" class="form-control">
+                </label>
+            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <td class="text-center">名字</td>
+                    <td class="text-center">周期</td>
+                    <td class="text-center">负责人</td>
+                    <td class="text-center">负责人邮件</td>
+                    <td class="text-center">负责人电话</td>
+                    <td class="text-center">操作</td>
+                </tr>
+                <tr class="text-center" ng-repeat="info in allDetails">
+                    <td class="col-xs-2">
+                        <input type="text" class="form-control" ng-model="info.name">
+                    </td>
+                    <td class="col-xs-1">
+                        <input type="text" name="cycle" class="form-control" ng-model="info.cycle"  ng-pattern="/^\d+$/">
+                        <span ng-hide="info.cycle>=0" style="color: red;">周期必须为数字</span>
+                    </td>
+                    <td class="col-xs-1">
+                        <input type="text" class="form-control" ng-model="info.person">
+                    </td>
+                    <td class="col-xs-1">
+                        <input type="text" class="form-control" ng-model="info.person_email">
+                    </td>
+                    <td class="col-xs-1">
+                        <input type="text" class="form-control" ng-model="info.person_phone">
+                    </td>
+                    <td class="col-xs-1">
+                        <div class="row">
+                            <input type="button" ng-click="deleteMBBZ()" value="删除" class="btn btn-warning">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="11"><input type="button" ng-click="addDetail()" class="btn" style="background: #46aad1;color: #fff;" value="增加一行"></td>
+                </tr>
+            </table>
+
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <input type="button" class="btn" style="background: #46aad1;color: #fff;" ng-disabled="formCycle.cycle.$invalid" ng-click="createTomplate()" value="创建模板">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

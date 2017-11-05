@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="../angular.min.js"></script>
+</head>
+<body ng-controller="con">
+    <h3>项目信息</h3>
+    <form>
+        流程id <input type="text" name="id" ng-model="id" ng-init="id='1'"><br>
+        <input type="button" ng-click="sub()" value="保存">
+    </form>
+</body>
+<script type="text/javascript">
+    angular.module("app",[])
+        .controller("con",function($scope,$http){
+            $scope.sub = function(){
+                tmp = []
+                t = {
+                    id: $scope.id,
+                }
+                tmp.push(t)
+                target = {
+                    'save': tmp,
+                }
+                datas = JSON.stringify(target)
+                $http({
+                    headers : {
+                        'content-type': 'application/json'
+                    },
+                    method: "POST",
+                    url: "http://127.0.0.1:8000/service_provider/two_params/1/select_process",
+                    data : datas
+                }).then(function(response){
+                    console.log(response);
+                },function(response){
+                    console.log(response);
+                });
+            }
+        })
+</script>
+</html>

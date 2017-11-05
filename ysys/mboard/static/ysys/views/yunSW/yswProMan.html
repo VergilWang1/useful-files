@@ -1,0 +1,66 @@
+<div class="wrapper wrapper-content animated fadeInRight" style="margin: 0 -15px;">
+    <div ng-controller="yswProMan">
+        <div class="title-path">
+            <a ui-sref="index.yunSWHome">云生物</a> >
+            <a ui-sref="index.yswUserMan">用户管理</a> >
+            <a ui-sref="index.yswUserInfo">用户详情</a> >
+            <a href="">项目详情</a>
+        </div>
+        <form action="" class="form-inline pull-right" style="padding-bottom: 20px;padding-right:15px;">
+            <div class="input-group" style="margin-top: 10px;margin-right: 10px;">
+                <input type="text" class="form-control" ng-model="searchPro" placeholder="搜索">
+                <span class="input-group-addon btn" ng-click="searchProBtn()">
+                    <img class="search-img" src="../../static/ysys/images/search.png" alt="">
+                </span>
+            </div>
+        </form>
+        <div class="col-xs-12 allProlist" >
+            <div class="row">
+                <div class="col-sm-4 col-xs-12 allProlist-box" ng-repeat="pro in proList">
+                    <div class="allProlist-content" pro-list-hover>
+                        <a ui-sref="index.proManage" ng-click="saveProIDDetail()" class="allProlist-link" style="height: 228px; border-radius: 10px;">点击查看项目详情</a>
+                        <div class="allProList-left">
+
+                        </div>
+                        <ul class="allProLisr-right clearfix">
+                            <li class="createDate">
+                                <span class="pull-left text-muted">{{pro.create_date}}</span>
+                                <div class="text-right text-muted">{{pro.label}}</div>
+                            </li>
+                            <li class="hiddenID">
+                                隐藏id：<span>{{pro.id}}</span>
+                            </li>
+                            <li class="proNum">
+                                项目编号：<span>{{pro.identifier}}</span>
+                            </li>
+                            <li class="hiddenEllipsis">
+                                项目内容：<span>{{pro.content}}</span>
+                            </li>
+                            <li>
+                                服<span style="display: inline-block;width:8px"></span>务<span style="display: inline-block;width:9px"></span>商：{{pro.service_provider.name}}
+                            </li>
+                            <li>
+                                客<span style="display: inline-block;width:34px"></span>户：{{pro.customer.name}}
+                            </li>
+                            <li>
+                                客户单位：{{pro.customer.company}}
+                            </li>
+                            <li>
+                                完成时间：{{pro.totalCycleTime}}
+                            </li>
+                            <li>
+                                <span class="pull-left">项目进度：</span>
+                                <div class="progress" style="margin-left: 90px; margin-right: 30px;">
+                                    <div class="progress-bar" style="background: #46aad1"  ng-style="pro.progress">{{pro.progress.width}}</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--分页-->
+        <div ng-include="'../../static/ysys/views/common/pagination.html'"></div>
+    </div>
+</div>

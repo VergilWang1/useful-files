@@ -1,0 +1,54 @@
+.headerBox{
+	width: 750rpx;
+	height: 520rpx;
+}
+.headeText{
+	position: absolute;
+	top: 300rpx;
+	left: 287rpx;
+	z-index: 1;
+	font-size: 17px;
+	font-weight: bold;
+}
+.headBgImg{
+	width: 100%;
+	height: 100%;
+}
+.headImg{
+	width: 180rpx;
+	height: 180rpx;
+	position: absolute;
+	top: 85rpx;
+	left: 295rpx;
+}
+.contentBox{
+	width: 640rpx;
+	height: 665rpx;
+	position: absolute;
+	left: 55rpx;
+	top: 395rpx;
+	box-shadow: 10px 10px 10px #ddf0f0;
+	box-sizing: border-box;
+	background: #fff;
+	padding: 0 55rpx;
+}
+.contentBox view input{
+	width: 528rpx;
+	height: 90rpx;
+	margin: 35rpx 0 0 0;
+	border-bottom: 1px solid #ccc;
+}
+.zhuce{
+	margin-top: 60rpx;
+}
+.registerBtn{
+	width: 483rpx;
+	height: 83rpx;
+	line-height: 83rpx;
+	border-radius: 40rpx;
+}
+.loginBtn{
+	text-align: center;
+	height: 83rpx;
+	line-height: 83rpx;
+}

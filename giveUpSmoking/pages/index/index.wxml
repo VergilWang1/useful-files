@@ -1,0 +1,13 @@
+<view class='container-box'>
+	<view class='container-top'>
+		<image class='top-img' src='{{topUrl}}'></image>
+	</view>
+	<view class='container-content'>
+		<view class='content-box' wx:for="{{allItems}}" wx:for-item="item" data-id="{{item.id}}" bindtap='allItemsTap'>
+			<view class='box-div'>
+				<image class='box-img' src='{{item.url}}'></image>
+				<view class='box-txt'>{{item.txt}}</view>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="{% static 'service_provider/' %}js/angular.min.js"></script>
+</head>
+<body ng-controller="con">
+    <h3>项目信息</h3>
+    <form>
+        <!--文件 <input type="file" name="upload_file" multiple file="upload_file"><br>-->
+        文件 <input type="file" name="upload_file" file="upload_file"><br>
+        <input type="button" ng-click="sub()" value="保存">
+    </form>
+</body>
+<script type="text/javascript">
+    let log = console.log.bind(console)
+    angular.module("app",[])
+        .directive('file', function () {
+            return {
+                scope: {
+                    file: '='
+                },
+                link: function (scope, el, attrs) {
+                    el.bind('change', function (event) {
+                        var file = event.target.files;
+                        scope.file = file ? file : undefined;
+                        scope.$apply();
+                    });
+                }
+            };
+        })
+        .controller("con",function($scope,$http){
+            $scope.sub = function(){
+                tmp_file = $scope.upload_file
+                log(tmp_file)
+                remark = '我是备注'
+                t = {
+                    'report_key': '4',
+                    'remark': remark,
+                }
+                tt = t
+                json_t = JSON.stringify(tt)
+                datas = {
+                    info: json_t,
+                    0: tmp_file[0],
+                    1: tmp_file[1],
+                }
+                log(datas)
+                $http({
+                    method: 'POST',
+                    // url: '/dynform/renderform/'+$routeParams.id+'/'+$scope.allData.stepid+'/'+$scope.allData.resultid+'/',
+                    url: 'http://127.0.0.1:8000/service_provider/two_params/1/upload_report',
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    // data: {
+                    //     save: datas,
+                    //     file: tmp_file,
+                    // },
+                    data: datas,
+                    transformRequest: function (data, headersGetter) {
+                        var formData = new FormData();
+                        angular.forEach(data, function (value, key) {
+                            formData.append(key, value);
+                        });
+
+                        var headers = headersGetter();
+                        delete headers['Content-Type'];
+
+                        return formData;
+                    }
+                })
+                .success(function (data) {
+                    $scope.formStatus = true;
+                })
+                .error(function (data, status) {
+                    console.log('form submit fail...');
+                });
+                }
+        })
+</script>
+</html>

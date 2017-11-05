@@ -1,0 +1,49 @@
+<view class="container-box">
+	<view class='topCon'>
+		<image class='top-bg-img' src='{{topBg}}'/>
+	</view>
+	<view class='content-box'>
+		<view class='time-minute'>时长：{{timeMinute}}</view>
+		<view class='people-training'>
+			<view class='top-box'>
+				<view class='left-num'>
+					 <view class='left-top-con'><text style='font-size: 30rpx'>{{peopleNum}}</text>人正在训练</view> 
+					 <view class='left-bottom-con'>{{allPeopleNum}}已经完成</view> 
+				</view>
+				 <view class='right-img'>
+				 	<image wx:for="{{headeImgs}}" wx:for-item="item" src='{{item.url}}'/>
+				</view> 
+			</view>
+			<view>
+				<view class='content-nav'>
+					<view>动作列表</view>
+					<view><text>{{activeNum}}</text>个动作</view>
+				</view>
+				<view class='active-name'><text>{{zhActIveName}}\n{{enActIveName}}</text></view>
+				<view class='taining-step'>  
+					<view wx:for="{{trainingSteps}}" wx:for-item="item">
+						<view class='one-step'>
+							<image src='{{item.url}}'/>
+							<view>
+								<view>{{item.stepName}}</view>
+								<view>{{item.stepSecond}}次</view>
+							</view>	
+						</view>
+						<view class='step-bottom'>{{item.xiuxiNum}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<button bindtap='beginTrain' class='begin-train'>开始训练</button>
+
+
+<!-- 视频播放器 -->
+	<view class="tc" class='{{videoHidden?"show":"hide"}}'>
+		<video id="myVideo" src="{{videoUrl}}" binderror="videoErrorCallback" binderror="videoErrorCallback"   controls></video>
+		<view class="btn-area">
+			<!-- <button bindtap="bindButtonTap">获取视频</button> -->
+			<input bindblur="bindInputBlur"/>
+		</view>
+	</view>
+</view>

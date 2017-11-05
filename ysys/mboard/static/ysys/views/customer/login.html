@@ -1,0 +1,88 @@
+<div class="wrapper wrapper-content animated fadeInRight wrapperHeight">
+    <div class="row wrapperHeight" style="padding: 0 10px;">
+        <div class="ysyslogo">
+            <img src="../../static/ysys/images/logo.png" alt="">
+        </div>
+        <div class="loginStyle" ng-controller="login">
+            <form class="form-horizontal formLogin" name="loginForm" novalidate>
+                <div class="leftYun1">
+                    <img src="../../static/ysys/images/leftYun.png" alt="">
+                </div>
+                <div class="rightYun1">
+                    <img src="../../static/ysys/images/rightYun.png" alt="">
+                </div>
+                <h2 class="text-center ys-font-color font-bold-16px margin-27bottom">欢迎登陆云生物项目管理系统</h2>
+                <div class="form-group">
+                    <div class="col-sm-3 col-xs-12">
+                        <label for="" class="control-label">用户:</label>
+                    </div>
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" class="form-control" 
+                                ng-model="phone" 
+                                name="phone"
+                                required
+                                placeholder="请输入电话号码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3 col-xs-12">
+                        <label for="" class="control-label">密码:</label>
+                    </div>
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="password" class="form-control" 
+                                ng-model="password" 
+                                name="password"
+                                required
+                                ng-minlength="6"
+                                ng-maxlength="12"
+                                placeholder="请输入6-12位字母数字组合">
+                    </div>
+                    <div class="col-sm-offset-3 col-sm-9 col-xs-12 text-danger" ng-if="loginForm.password.$dirty">
+                        <span ng-show="loginForm.password.$error.required">密码不能为空</span>
+                        <span ng-show="loginForm.password.$error.minlength">密码不能小于6</span>
+                        <span ng-show="loginForm.password.$error.maxlength">密码不能大于12</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3 col-xs-12">
+                        <label for="" class="control-label">验证码:</label>
+                    </div>
+                    <div class="col-sm-4 col-xs-6">
+                        <input type="text" id="code_input" placeholder="请输入验证码" class="form-control" ng-model="test" name="test">
+                    </div>
+                    <div class="col-sm-5 col-xs-6">
+                        <span id="v_container" class="testNum"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-5 col-xs-6">
+                        <label for="" class="checkbox-inline control-label">
+                            <input type="checkbox" ng-model="rememberPWD">记住密码
+                        </label>
+                    </div>
+                    <div class="col-sm-4 col-xs-6 text-right">
+                        <label for="" class="checkbox-inline control-label">
+                            <a ui-sref="forgatPwd">忘记密码</a>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3 col-xs-12">
+                        <input class="btn col-xs-12" style="background: #46aad1;color: #fff;" ng-disabled="loginForm.$invalid" ng-click="login()" type="button" value="登录">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12 text-right">
+                        还没有帐号？ <a ui-sref="register" style="text-decoration: underline;color:#46aad1">立即注册</a> 
+                    </div>
+                </div>
+                <div class="col-sm-3 hidden-xs" style="position: absolute;left: 18px; top: 197px">
+                    <div class="row">
+                        <img style="width: 70%; height: 70%; margin: 20px -29px -10px 5px" src="../../static/ysys/images/erweima.jpg" alt="">
+                    </div>
+                </div>
+                <div class="text-center" style="font-size: 16px;text-decoration: underline"><a href="http://www.yunbios.net/">前往云生物官网</a></div>
+            </form>
+        </div>
+    </div>
+</div>

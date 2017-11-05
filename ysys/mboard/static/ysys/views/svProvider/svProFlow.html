@@ -1,0 +1,45 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div ng-controller="svProFlow">
+        <form action="" class="form-inline pull-right" style="padding: 20px">
+            <div class="input-group">
+                <input type="text" class="form-control">
+                <span class="input-group-addon">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </span>
+            </div>
+        </form>
+        <div class="col-xs-12 allProlist">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12 allProlist-box" ng-repeat="pro in proList">
+                    <div class="allProlist-content" pro-list-hover>
+                        <a ui-sref="index.svDetails" style="height: 100%; border-radius: 10px; padding-top: 27%" class="allProlist-link" >点击查看项目详情</a>
+                        <div class="allProList-left">
+
+                        </div>
+                        <ul class="allProLisr-right">
+                            <li class="createDate">
+                                <span class="pull-left">{{pro.create_date}}</span>
+                                <h2 class="text-right">项目已创建</h2>
+                            </li>
+                            <li>
+                                项目内容：{{pro.content}}
+                            </li>
+                            <li>
+                                项目负责人：{{pro.responsible}}
+                            </li>
+                            <li>
+                                联系方式：{{pro.phone}}
+                            </li>
+                            <li>
+                                电子邮件：{{pro.email}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--分页-->
+        <div ng-include="'../../static/ysys/views/common/pagination.html'"></div>
+    </div>
+</div>

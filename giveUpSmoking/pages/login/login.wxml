@@ -1,0 +1,20 @@
+<view>
+	<view class='headerBox'>
+		<image class='headImg' src='../../images/login/headImg.png'></image>
+		<image class='headBgImg' src='../../images/login/headBgImg.png'></image>
+		<view class='headeText'>戒烟小程序</view>
+	</view>
+	<view class='contentBox'>
+			<view><input placeholder='请输入手机号码'/></view>
+			<view><input placeholder='请输入密码'/></view>
+			<view class='forgartPwd'>
+				<view class='zhuce' bindtap='toRegister'>立即注册</view>
+				<view class='wangji'>忘记密码</view>
+			</view>
+			<view>
+				<button>登陆</button>
+			</view>
+			<view class='wxlogin'>微信登陆</view>
+			<view class='weixinImg'><image src='../../images/login/wexin.png'></image></view>
+	</view>
+</view>

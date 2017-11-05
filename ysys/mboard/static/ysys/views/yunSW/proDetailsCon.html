@@ -1,0 +1,54 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="title-path">
+            <a href="javascript:;" ng-click="backHomePage()">云生物</a> >
+            <a ui-sref="index.proManage">项目管理</a> >
+            <a href="">流程详情</a>
+        </div>
+    </div>
+    <div ng-controller="proDetailsCon">
+        <form style="padding-top: 20px;">
+            <div class="form-group">
+                <label for="">
+                    <input type="text" ng-model="proDetail[0].name" class="form-control">
+                </label>
+            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <td class="text-center">名称</td>
+                    <td class="text-center" >周期</td>
+                    <td class="text-center" >负责人</td>
+                    <td class="text-center" >负责人邮件</td>
+                    <td class="text-center" >负责人电话</td>
+                </tr>
+                <tr class="text-center" ng-repeat="info in allDetails" ng-show="info.active">
+                    <td class="col-xs-2">
+                        <input type="text" class="form-control" ng-model="info.name" ng-disabled="info.running">
+                        <!--<textarea class="form-control" rows="5" ng-model="info.name"></textarea>-->
+                    </td>
+                    <td class="col-xs-1" >
+                        <input type="text" class="form-control" ng-model="info.cycle"  ng-disabled="info.running">
+                        <span ng-hide="info.cycle>=0" style="color: red;">周期必须为数字</span>
+                    </td>
+                    <td class="col-xs-2" >
+                        <input type="text" class="form-control" ng-model="info.person" ng-disabled="info.running">
+                        <!--<textarea class="form-control" rows="5" ng-model="info.cycle"></textarea>-->
+                    </td>
+                    <td class="col-xs-2" >
+                        <input type="text" class="form-control" ng-model="info.person_email" ng-disabled="info.running">
+                    </td>
+                    <td class="col-xs-2" >
+                        <input type="text" class="form-control" ng-model="info.person_phone" ng-disabled="info.running">
+                        <!--<textarea class="form-control" rows="5" ng-model="info.cycle"></textarea>-->
+                    </td>
+                </tr>
+            </table>
+            
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <input type="button" class="btn" style="background: #46aad1;color: #fff;" ng-click="saveTomplate()" value="保存">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

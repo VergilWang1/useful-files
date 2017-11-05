@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="{% static 'service_provider/' %}js/angular.min.js"></script>
+</head>
+<body ng-controller="con">
+    <h3>保存系统配置信息</h3>
+    <form>
+        id <input type="text" name="id" ng-model="id" ng-init="id='1'"><br>
+        配置名称 <input type="text" name="name" ng-model="name" ng-init="name='步骤名01'"><br>
+        <input type="button" ng-click="sub()" value="保存">
+    </form>
+</body>
+<script type="text/javascript">
+    angular.module("app",[])
+        .controller("con",function($scope,$http){
+            $scope.sub = function(){
+                tmp = []
+                t = {
+                    'id': $scope.id,
+                    'name': $scope.name,
+                }
+                tmp.push(t)
+                tmp = JSON.stringify(tmp)
+                // t2 = {
+                //     'project_id': '1',
+                //     'service_provider_id': '32',
+                //     'process_id': '2',
+                // }              
+                // tmp2 = JSON.stringify(t2)
+                target = {
+                    'save': tmp,
+                    // 'info': tmp2,
+                }
+               
+                $http({
+                    headers : {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    method: "POST",
+                    url: "http://127.0.0.1:8000/service_provider/one_param/save_system_contact",
+                    data : target,
+                    transformRequest: function (data, headersGetter) {
+                        var formData = new FormData();
+                        angular.forEach(data, function (value, key) {
+                            formData.append(key, value);
+                        });
+
+                        var headers = headersGetter();
+                        delete headers['Content-Type'];
+
+                        return formData;
+                    },
+                }).then(function(response){
+                    console.log(response);
+                },function(response){
+                    console.log(response);
+                });
+            }
+        })
+</script>
+</html>

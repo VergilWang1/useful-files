@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="../angular.min.js"></script>
+</head>
+<body ng-controller="con">
+    <h3>项目信息</h3>
+    <form>
+        流程名称 <input type="text" name="name" ng-model="name"><br>
+        适用项目 <input type="text" name="apply_item" ng-model="apply_item"><br>
+        流程负责人 <input type="text" name="responsible" ng-model="responsible"><br>
+        联系电话 <input type="text" name="phone" ng-model="phone"><br>
+        e-mail <input type="text" name="email" ng-model="email"><br>        
+        <!--文件 <input type="file" name="">-->
+        <!--样品均质化说明 <input type="radio" name="homegenization" ng-model="homegenization">是   <input type="radio">否（说明：是否任取一部分代表整个组织）<br>-->
+        <input type="button" ng-click="sub()" value="保存">
+    </form>
+</body>
+<script type="text/javascript">
+    angular.module("app",[])
+        .controller("con",function($scope,$http){
+            $scope.sub = function(){
+                tmp = []
+                t = {
+                    name: $scope.name,
+                    apply_item: $scope.apply_item,
+                    responsible: $scope.responsible,
+                    phone: $scope.phone,
+                    email: $scope.email,
+                }
+                tmp.push(t)
+                target = {
+                    'save': tmp,
+                }
+                datas = JSON.stringify(target)
+                $http({
+                    headers : {
+                        'content-type': 'application/json'
+                    },
+                    method: "POST",
+                    url: "http://127.0.0.1:8000/service_provider/one_param/create_process",
+                    data : datas
+                }).then(function(response){
+                    console.log(response);
+                },function(response){
+                    console.log(response);
+                });
+            }
+        })
+</script>
+</html>

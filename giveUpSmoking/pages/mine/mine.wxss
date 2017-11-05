@@ -1,0 +1,52 @@
+.container-top{
+	height: 324rpx;
+}
+.mine-bg{
+	position: absolute;
+	z-index: -1;
+	height: 100%;
+	width: 100%;
+}
+.mine-header-img{
+	width: 150rpx;
+	height: 150rpx;
+	border-radius: 50%;
+	margin: 54rpx 0 0 300rpx;
+}
+.mine-name{
+	text-align: center;
+	height: 88rpx;
+	line-height: 88rpx;
+	font-size: 30rpx;
+	color: #fff;
+}
+.container-bottom-box{
+	height: 100%;
+	background: #fff;
+}
+.container-bottom{
+	 height: 790rpx; 
+}
+.container-div{
+	width: 50%;
+	height: 33.3%;
+	 float: left; 
+	 border: 1rpx solid #d5d5d5;
+	 border-width: 1rpx 1rpx 0 0;
+	 box-sizing: border-box;
+	text-align: center;
+}
+.icon-tip{
+	height: 90rpx;
+	text-align: left;
+	margin-left: 28rpx;
+}
+.icon-tip image{
+	width: 45rpx;
+	height: 45rpx;
+	vertical-align: middle;
+	margin-right: 12rpx;
+}
+.icon-tip text{
+	line-height: 90rpx;
+}

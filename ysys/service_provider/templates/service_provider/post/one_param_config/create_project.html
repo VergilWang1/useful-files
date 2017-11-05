@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="{% static 'service_provider/' %}js/angular.min.js"></script>
+</head>
+<body ng-controller="con">
+    <h3>创建项目</h3>
+    <form>
+        选择客户id <input type="text" ng-model="customer_id" ng-init="customer_id='31'"><br>
+        项目名称 <input type="text" ng-model="name" ng-init="name='我是项目名称'"><br>
+        检测指标 <input type="text" ng-model="test_index" ng-init="test_index='指标'"><br>
+        物种 <input type="text" ng-model="species" ng-init="species='物种'"><br>
+        样本数量 <input type="text" ng-model="sample_size" ng-init="sample_size='10'"><br>
+        样品均质化说明 <input type="checkbox" ng-model="homogenization" ng-init="homogenization=false"><br>
+        取样的日期 <input type="text" ng-model="take_sample_date" ng-init="take_sample_date='2019-01-01'"><br>
+        取样地址 <input type="text" ng-model="sampling_address" ng-init="sampling_address='取样地址'"><br>
+        <input type="button" ng-click="sub()" value="保存">
+    </form>
+</body>
+<script type="text/javascript">
+    angular.module("app",[])
+        .controller("con",function($scope,$http){
+            $scope.sub = function(){
+                tmp = []
+                t = {
+                    'customer_id': $scope.customer_id,
+                    'name': $scope.name,
+                    'test_index': $scope.test_index,
+                    'species': $scope.species,
+                    'sample_size': $scope.sample_size,
+                    'homogenization': $scope.homogenization,
+                    'take_sample_date': $scope.take_sample_date,
+                    'sampling_address': $scope.sampling_address,
+                }
+                tmp.push(t)
+                tmp = JSON.stringify(tmp)
+                // t2 = {
+                //     'project_id': '1',
+                //     'service_provider_id': '32',
+                //     'process_id': '2',
+                // }              
+                // tmp2 = JSON.stringify(t2)
+                target = {
+                    'save': tmp,
+                    // 'info': tmp2,
+                }
+               
+                $http({
+                    headers : {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    method: "POST",
+                    url: "http://127.0.0.1:8000/service_provider/one_param/create_project",
+                    data : target,
+                    transformRequest: function (data, headersGetter) {
+                        var formData = new FormData();
+                        angular.forEach(data, function (value, key) {
+                            formData.append(key, value);
+                        });
+
+                        var headers = headersGetter();
+                        delete headers['Content-Type'];
+
+                        return formData;
+                    },
+                }).then(function(response){
+                    console.log(response);
+                },function(response){
+                    console.log(response);
+                });
+            }
+        })
+</script>
+</html>

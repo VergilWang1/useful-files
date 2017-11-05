@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="../angular.min.js"></script>
+</head>
+<body ng-controller="con">
+    <h3>项目信息</h3>
+    <form>
+        文件 <input type="file" name="upload_file" file="upload_file"><br>
+        <input type="button" ng-click="sub()" value="保存">
+    </form>
+</body>
+<script type="text/javascript">
+    angular.module("app",[])
+        .directive('file', function () {
+            return {
+                scope: {
+                    file: '='
+                },
+                link: function (scope, el, attrs) {
+                    el.bind('change', function (event) {
+                        var file = event.target.files;
+                        scope.file = file ? file : undefined;
+                        scope.$apply();
+                    });
+                }
+            };
+        })
+        .controller("con",function($scope,$http){
+            $scope.sub = function(){
+                tmp_file = $scope.upload_file
+                remark = '我是备注'
+                datas = {
+                    'report_key': 1,
+                    'remark': remark,
+                    // 'file': tmp_file,
+                }
+                $http({
+                    headers : {
+                        'content-type': 'multipart/form-data',
+                    },
+                    method: "POST",
+                    url: "http://127.0.0.1:8000/service_provider/two_params/1/upload_report",
+                    data : datas,
+                    transformRequest: function (data, headersGetter) {
+                        var formData = new FormData();
+                        angular.forEach(data, function (value, key) {
+                            formData.append(key, value);
+                        });
+
+                        var headers = headersGetter();
+                        delete headers['Content-Type'];
+
+                        return formData;
+                    },
+                }).then(function(response){
+                    console.log(response);
+                },function(response){
+                    console.log(response);
+                });
+            }
+        })
+</script>
+</html>

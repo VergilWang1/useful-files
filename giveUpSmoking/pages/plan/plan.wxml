@@ -1,0 +1,14 @@
+<view class="container-box">
+	<image class='container-bg' src='../../images/plan/planBg.png'></image>
+	<view>
+		<view class='topTxt'><text class='txt-blue'>{{indexImg}}</text>	 /{{allImg}}</view>
+	</view>
+	<view class='image-box'>
+		 <view class='image-content' bindtouchstart='imageTouchStart' bindtouchmove='imageTouchMove' bindtouchend='imageTouchEnd' style='left: {{imgContentMarginLeft}}'>
+			<image bindtap='goTraining' wx:for="{{planImg}}" class='{{item.flag?"go-training":""}}' wx:for-item="item" src='{{item.url}}' data-id="{{index}}"></image>
+		</view> 
+	</view>
+	<view class='wantToStop'>
+		<button bindtap='wantToStopTap'>我想戒烟</button>
+	</view>
+</view>

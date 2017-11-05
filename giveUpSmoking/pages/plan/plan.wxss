@@ -1,0 +1,34 @@
+.topTxt{
+	text-align: center;
+	line-height: 110rpx;
+}
+.image-box{
+	width: 750rpx;
+	height: 793rpx;
+	text-align: center;
+	position: relative;
+	 overflow: hidden; 
+}
+.go-training{
+	 transform: scale(0.9); 
+}
+.image-content{
+	width: 1800rpx;
+	z-index: 1;
+	position: absolute;
+	padding: 0 112.5rpx;
+}
+.image-box image{
+	width: 450rpx;
+	height: 789rpx;
+	float: left;
+	margin: 0 37.5rpx; 
+}
+.wantToStop{
+	margin: 40rpx 0 0 240rpx;
+	width: 270rpx;
+	height: 70rpx;
+}
+.wantToStop button{
+	border-radius: 70rpx;
+}

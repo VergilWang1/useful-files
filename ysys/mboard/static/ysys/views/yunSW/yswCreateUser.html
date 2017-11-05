@@ -1,0 +1,77 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="title-path">
+            <a ui-sref="index.yunSWHome">云生物</a> >
+            <a href="">创建用户</a>
+        </div>
+    </div>
+    <div class="col-xs-9">
+        <form class="form-horizontal" ng-controller="yswCreateUser">
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <label for="" class="control-label">用户角色</label>
+                </div>
+                <div class="col-sm-9">
+                    <select name="" ng-model="group" id="">
+                        <option value="1">客户</option>
+                        <option value="2">物流商</option>
+                        <option value="3">服务商</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-3">
+                    <label for="" class="control-label">用户</label>
+                </div>
+                <div class="col-xs-9">
+                    <input type="text" ng-model="username" class="form-control">
+                </div>
+            </div>
+             <div class="form-group">
+                <div class="col-xs-3">
+                    <label for="" class="control-label">密码</label>
+                </div>
+                <div class="col-xs-9">
+                    <input type="password" ng-model="pwd" class="form-control">
+                </div>
+            </div>
+             <div class="form-group">
+                <div class="col-xs-3">
+                    <label for="" class="control-label">电子邮件</label>
+                </div>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="email">
+                </div>
+            </div>
+             <div class="form-group">
+                <div class="col-xs-3">
+                    <label for="" class="control-label">联系方式</label>
+                </div>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="phone">
+                </div>
+            </div>
+             <div class="form-group">
+                <div class="col-xs-3">
+                    <label for="" class="control-label">单位</label>
+                </div>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="company">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-3">
+                    <label for="" class="control-label">详细地址</label>
+                </div>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="address">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-3">
+                    <input type="button" class="btn btn-success col-xs-3" ng-click="createUser()" value="保存">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

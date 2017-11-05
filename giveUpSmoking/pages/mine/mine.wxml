@@ -1,0 +1,19 @@
+<view class="container-box">
+	<image class='mine-bg' src='{{mineBg}}'></image>
+	 <view class='container-top'>
+	 		<image class='mine-header-img' src='{{mineHeaderImg}}'></image>
+			 <view class='mine-name'>{{mineName}}</view>
+		</view>
+		<view class='container-bottom-box'>
+			<view class='container-bottom'>
+				<view class='container-div' wx:for="{{details}}" wx:for-item="item">
+					<view class='icon-tip'>
+						<image src='{{item.url}}'></image>
+						<text>{{item.text}}</text>
+					</view>
+					<view>{{item.viewTxt}}</view>
+					<view>{{item.num}}</view>
+				</view>
+			</view> 
+		</view>
+</view>
