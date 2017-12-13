@@ -1,0 +1,43 @@
+<div ng-controller="question">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="h3">
+            添加问题
+        </div>
+        
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">添加问卷</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="" class="control-label">name:</label>
+                        <div>
+                            <input type="text" ng-model="name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="control-label">order:</label>
+                        <div>
+                            <input type="text" ng-model="order" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="control-label">other:</label>
+                        <div>
+                            <input type="text" ng-model="other" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="saveWrnJuan()">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
