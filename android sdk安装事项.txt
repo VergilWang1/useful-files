@@ -1,0 +1,13 @@
+需要下载在邮箱1745159983的Android sdk tools,
+
+无法下载，修改方法：
+	tools>options>
+		HTTP Proxy Server: mirrors.neusoft.edu.cn   
+		
+		HTTP Proxy Port: 80
+
+		选中 Force https://.....
+
+可使用镜像下载
+
+亲测有效
