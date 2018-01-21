@@ -1,0 +1,25 @@
+<ion-view view-title="Account">
+  <ion-content>
+    <ion-list>
+    <ion-toggle  ng-model="settings.enableFriends">
+        Enable Friends
+
+
+    </ion-toggle>
+
+    <div class="card">  
+	  <div class="item">  
+	    <button class="button button-block button-positive" ng-click="scanStart()">  
+	      <i class="icon ion-qr-scanner"></i>  
+	      Scan Now  
+	    </button>  
+	  </div>  
+	</div>  
+	<div class="card">  
+	  <div class="item item-divider">Scan Results</div>  
+	  <div class="item item-text-wrap">  
+	    {{barcodeData}}  
+	  </div>  
+	</div> 
+  </ion-content>
+</ion-view>
